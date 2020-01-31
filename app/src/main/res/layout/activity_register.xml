@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".Register">
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="449dp"
+        android:layoutgi_gravity="center"
+        android:layout_margin="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <EditText
+            android:id="@+id/editUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter your Userrname"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="83dp"
+            tools:layout_editor_absoluteY="57dp" />
+
+        <EditText
+            android:id="@+id/editEmailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Your Email Id"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="146dp" />
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Password"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <EditText
+            android:id="@+id/editHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Height"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="317dp" />
+
+        <EditText
+            android:id="@+id/editWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Weight"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="410dp" />
+
+        <EditText
+            android:id="@+id/editActivityLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Activity Level"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="69dp"
+            tools:layout_editor_absoluteY="505dp" />
+        <RadioGroup
+            android:id="@+id/radioGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="82dp"
+            tools:layout_editor_absoluteY="317dp"
+            android:layout_gravity="left"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Veg" />
+
+
+            <RadioButton
+                android:id="@+id/radioButtonFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Non-veg" />
+
+        </RadioGroup>
+
+
+
+        <EditText
+            android:id="@+id/editText8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+
+
+            tools:layout_editor_absoluteX="67dp"
+            tools:layout_editor_absoluteY="669dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registerSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
