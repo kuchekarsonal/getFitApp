@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="310dp"
         android:layout_height="449dp"
-        android:layoutgi_gravity="center"
+        android:layout_gravity="center"
         android:layout_margin="30dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -118,8 +118,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-
-
             tools:layout_editor_absoluteX="67dp"
             tools:layout_editor_absoluteY="669dp" />
 
