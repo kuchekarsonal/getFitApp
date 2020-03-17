@@ -38,15 +38,16 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //init views
+        editMailId = (EditText)findViewById(R.id.editEmailId);
+        editPassword = (EditText) findViewById(R.id.editPassword);
+        btnLogin = (Button) findViewById(R.id.btn_login);
 
         //Init Service
         retrofit = RetrofitClient.getInstance();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        //init views
-        editMailId = (EditText)findViewById(R.id.editEmailId);
-        editPassword = (EditText) findViewById(R.id.editPassword);
-        btnLogin = (Button) findViewById(R.id.btn_login);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
