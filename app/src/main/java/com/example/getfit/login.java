@@ -6,6 +6,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 import android.os.Bundle;
@@ -15,23 +18,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.getfit.Retrofit.RetroFitInterface;
+import com.example.getfit.Retrofit.LoginResult;
+import com.example.getfit.Retrofit.RetrofitInterface;
 import com.example.getfit.Retrofit.RetrofitClient;
+import com.example.getfit.Retrofit.RetrofitInterface;
+
+import java.util.HashMap;
 
 public class login extends AppCompatActivity {
     EditText editMailId, editPassword;
     Button btnLogin;
-    private   Retrofit retrofitClient
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
 
-    private static CompositeDisposable compositeDisposable = new CompositeDisposable();
-    RetroFitInterface iMyService;
-
-
-    @Override
-    protected void onStop() {
-        compositeDisposable.clear();
-        super.onStop();
-    }
+    //private static CompositeDisposable compositeDisposable = new CompositeDisposable();
+   // RetroFitInterface iMyService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,8 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //Init Service
-        retrofitClient = RetrofitClient.getInstance();
-        iMyService = retrofitClient.create(RetroFitInterface.class);
+        retrofit = RetrofitClient.getInstance();
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         //init views
         editMailId = (EditText)findViewById(R.id.editEmailId);
@@ -70,15 +71,30 @@ public class login extends AppCompatActivity {
             return;
         }
 
-       compositeDisposable.add(iMyService.loginUser(email, password)) //error here
-               .subscribeOn(Schedulers.io())
-               .observeOn(AndroidSchedulers.mainThread())
-               .subscribe(new Consumer<String>() {
-                   @Override
-                   public void accept(String s) {
-                       Toast.makeText(login.this, " "+ s, Toast.LENGTH_SHORT).show();
-                   }
-               });
+        HashMap<String, String> map = new HashMap<>();
+        map.put("email", email);
+        map.put("password", password);
+
+        Call<LoginResult> call = retrofitInterface.executeLogin(map);
+        call.enqueue(new Callback<LoginResult>() {
+            @Override
+            public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                if(response.code()  == 200)
+                {
+                    LoginResult result = response.body();
+                }else if(response.code() == 404)
+                {
+
+                    Toast.makeText(login.this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResult> call, Throwable t) {
+                Toast.makeText(login.this, t.getMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 

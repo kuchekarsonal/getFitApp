@@ -52,72 +52,73 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             tools:layout_editor_absoluteX="82dp"
             tools:layout_editor_absoluteY="226dp" />
 
+<!--        <EditText-->
+<!--            android:id="@+id/editHeight"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Enter Height"-->
+<!--            android:inputType="textPersonName"-->
+<!--            tools:layout_editor_absoluteX="82dp"-->
+<!--            tools:layout_editor_absoluteY="317dp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/editWeight"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Enter Weight"-->
+<!--            android:inputType="textPersonName"-->
+<!--            tools:layout_editor_absoluteX="82dp"-->
+<!--            tools:layout_editor_absoluteY="410dp" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/editActivityLevel"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Enter Activity Level"-->
+<!--            android:inputType="textPersonName"-->
+<!--            tools:layout_editor_absoluteX="69dp"-->
+<!--            tools:layout_editor_absoluteY="505dp" />-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/radioGender"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:layout_editor_absoluteX="82dp"-->
+<!--            tools:layout_editor_absoluteY="317dp"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/radioButtonMale"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:checked="true"-->
+<!--                android:text="Veg" />-->
+
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/radioButtonFemale"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Non-veg" />-->
+
+<!--        </RadioGroup>-->
+
+
+
         <EditText
-            android:id="@+id/editHeight"
+            android:id="@+id/confirmPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter Height"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="82dp"
-            tools:layout_editor_absoluteY="317dp" />
-
-        <EditText
-            android:id="@+id/editWeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Enter Weight"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="82dp"
-            tools:layout_editor_absoluteY="410dp" />
-
-        <EditText
-            android:id="@+id/editActivityLevel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Enter Activity Level"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="69dp"
-            tools:layout_editor_absoluteY="505dp" />
-        <RadioGroup
-            android:id="@+id/radioGender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="82dp"
-            tools:layout_editor_absoluteY="317dp"
-            android:layout_gravity="left"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioButtonMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Veg" />
-
-
-            <RadioButton
-                android:id="@+id/radioButtonFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Non-veg" />
-
-        </RadioGroup>
-
-
-
-        <EditText
-            android:id="@+id/editText8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
             tools:layout_editor_absoluteX="67dp"
             tools:layout_editor_absoluteY="669dp" />
 
