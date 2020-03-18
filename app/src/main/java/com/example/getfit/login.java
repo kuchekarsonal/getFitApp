@@ -41,7 +41,7 @@ public class login extends AppCompatActivity {
         //init views
         editMailId = (EditText)findViewById(R.id.editEmailId);
         editPassword = (EditText) findViewById(R.id.editPassword);
-        btnLogin = (Button) findViewById(R.id.btn_login);
+        btnLogin = (Button) findViewById(R.id.login);
 
         //Init Service
         retrofit = RetrofitClient.getInstance();
