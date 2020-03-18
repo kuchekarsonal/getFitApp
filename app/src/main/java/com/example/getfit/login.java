@@ -1,16 +1,13 @@
 package com.example.getfit;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.util.Consumer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,12 +15,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.example.getfit.Retrofit.LoginResult;
 import com.example.getfit.Retrofit.RetrofitInterface;
 import com.example.getfit.Retrofit.RetrofitClient;
-import com.example.getfit.Retrofit.RetrofitInterface;
 
 import java.util.HashMap;
+
+import static android.widget.Toast.LENGTH_SHORT;
+
 
 public class login extends AppCompatActivity {
     EditText editMailId, editPassword;
@@ -54,6 +54,7 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 loginUser(editMailId.getText().toString(),
                         editPassword.getText().toString());
+
             }
         });
 
@@ -63,12 +64,12 @@ public class login extends AppCompatActivity {
     private void loginUser(final String email, String password) {
         if(TextUtils.isEmpty(email))
         {
-            Toast.makeText(this, "Email cannot be null or empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Email cannot be null or empty", LENGTH_SHORT).show();
             return;
         }
         if(TextUtils.isEmpty(password))
         {
-            Toast.makeText(this, "Password cannot be null or empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password cannot be null or empty", LENGTH_SHORT).show();
             return;
         }
 
@@ -83,17 +84,23 @@ public class login extends AppCompatActivity {
                 if(response.code()  == 200)
                 {
                     LoginResult result = response.body();
+                    Toast.makeText(login.this,
+                            "Welcome to getFit App", Toast.LENGTH_LONG).show();
+                    login.this.startActivity(new Intent(login.this, Diet.class));
+                    login.this.finish();
+
+
                 }else if(response.code() == 404)
                 {
 
-                    Toast.makeText(login.this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(login.this, "Wrong Credentials", LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResult> call, Throwable t) {
-                Toast.makeText(login.this, t.getMessage(),
-                        Toast.LENGTH_LONG).show();
+               Toast.makeText(login.this, t.getMessage(),
+                        LENGTH_SHORT).show();
             }
         });
 

@@ -77,6 +77,10 @@ public class Register extends AppCompatActivity {
             Toast.makeText(this, "Confirm Password cannot be null or empty", Toast.LENGTH_SHORT).show();
             return;
         }
+       if(!(TextUtils.equals(password,confirmPassword))){
+           Toast.makeText(this, "Password and Confirm Password must be same", Toast.LENGTH_SHORT).show();
+       }
+
         HashMap<String, String> map = new HashMap<>();
         map.put("name",userName);
         map.put("email", email);
