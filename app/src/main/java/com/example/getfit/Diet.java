@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.getfit.Fragments.Fragment_Analysis;
 import com.example.getfit.Fragments.Fragment_Home;
@@ -31,14 +33,16 @@ public class Diet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet);
 
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.nav_main);
-        mMainFrame = (FrameLayout)findViewById(R.id.mainframeLayout);
+        bottomNavigationView = findViewById(R.id.nav_main);
+        mMainFrame = findViewById(R.id.mainframeLayout);
 
         //intialise fragments;
         fragmentHome = new Fragment_Home();
         fragmentAnalysis = new Fragment_Analysis();
         fragmentDietPlan =new Fragment_dietPlan();
         fragmentUserProfile = new Fragment_userProfile();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainframeLayout,fragmentHome).commit();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -48,9 +52,9 @@ public class Diet extends AppCompatActivity {
                         setFragment(fragmentHome);
                         return  true;
 
-                    case  R.id.nav_menu_plans:
-                        setFragment(fragmentDietPlan);
-                        return  true;
+//                    case  R.id.nav_menu_plans:
+//                        setFragment(fragmentDietPlan);
+//                        return  true;
 
                     case R.id.nav_menu_analysis:
                         setFragment(fragmentAnalysis);
@@ -68,7 +72,7 @@ public class Diet extends AppCompatActivity {
 
             private void setFragment(Fragment fragment) {
                 FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.mainframeLayout, fragment);
+                fragmentTransaction.replace(R.id.mainframeLayout, fragment).commit();
             }
         });
     }
