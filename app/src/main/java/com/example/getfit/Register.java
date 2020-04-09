@@ -6,6 +6,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -93,6 +94,10 @@ public class Register extends AppCompatActivity {
                 if (response.code() == 200) {
                     Toast.makeText(Register.this,
                             "Signed up successfully", Toast.LENGTH_LONG).show();
+
+                    Register.this.startActivity(new Intent(Register.this, userProfile.class));
+                    Register.this.finish();
+
                 } else if (response.code() == 400) {
                     Toast.makeText(Register.this,
                             "Already registered", Toast.LENGTH_LONG).show();

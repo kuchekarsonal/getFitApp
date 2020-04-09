@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Diet"></activity>
+        <activity android:name=".userProfile"></activity>
+        <activity android:name=".Diet" />
         <activity
             android:name=".Welcome"
             android:label="@string/title_activity_welcome" />

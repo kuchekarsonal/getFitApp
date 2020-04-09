@@ -13,4 +13,20 @@ public interface RetrofitInterface {
 
     @POST("/signup")
     Call<Void> executeSignup (@Body HashMap<String, String> map);
+
+    /**
+     * @param post
+     * @return
+     */
+    @POST("/questionnaire/{email}")
+    Call<userProfileResult> createUserProfile(@Body userProfileResult post);
+
+
 }
+//    String email;
+//    private float height;
+//    private float weight;
+//    private String activityLevel;
+//    private String gender;
+//    private int age;
+//    private String goalWeight;
