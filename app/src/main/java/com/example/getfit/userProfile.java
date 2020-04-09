@@ -22,7 +22,8 @@ import com.example.getfit.Retrofit.userProfileResult;
 import java.util.HashMap;
 
 public class userProfile extends AppCompatActivity {
-    EditText email, height, weight, activityLevel;
+    EditText height, weight, activityLevel;
+    String email;
     RadioGroup gender;
     EditText age, goalWeight;
     Button ok;
@@ -36,7 +37,11 @@ public class userProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        email = (EditText)findViewById(R.id.userProfileEmail);
+
+        if(getIntent().hasExtra("email")){
+            email = getIntent().getStringExtra("email");
+        }
+//        email = (EditText)findViewById(R.id.userProfileEmail);
         height = (EditText)findViewById(R.id.userProfileHeight);
         weight = (EditText)findViewById(R.id.userProfileWeight);
         activityLevel =(EditText) findViewById(R.id.userProfileActivityLevel);
@@ -58,7 +63,7 @@ public class userProfile extends AppCompatActivity {
                 radioButton = (RadioButton)findViewById(selectedRadioId);
 
                //String Email = email.getText().toString();
-               executeUserProfile(email.getText().toString(),
+               executeUserProfile(email,
 
                        Float.valueOf(height.getText().toString()),
                        Float.valueOf(weight.getText().toString()),
@@ -74,7 +79,7 @@ public class userProfile extends AppCompatActivity {
                         height,weight,activityLevel,gender,age,goalWeight);
 
 
-                Call<userProfileResult> call =retrofitInterface.createUserProfile(post);
+                Call<userProfileResult> call =retrofitInterface.createUserProfile(post,email);
                 call.enqueue(new Callback<userProfileResult>() {
                     @Override
                     public void onResponse(Call<userProfileResult> call, Response<userProfileResult> response) {

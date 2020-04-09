@@ -5,6 +5,7 @@ import java.util.HashMap;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface RetrofitInterface {
 
@@ -19,7 +20,7 @@ public interface RetrofitInterface {
      * @return
      */
     @POST("/questionnaire/{email}")
-    Call<userProfileResult> createUserProfile(@Body userProfileResult post);
+    Call<userProfileResult> createUserProfile(@Body userProfileResult post, @Path("email") String email);
 
 
 }

@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
         });
     }
 
-    private void registerUser(String userName, String email, String password, String confirmPassword) {
+    private void registerUser(String userName, final String email, String password, String confirmPassword) {
 
         if(TextUtils.isEmpty(userName))
         {
@@ -95,7 +95,12 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this,
                             "Signed up successfully", Toast.LENGTH_LONG).show();
 
-                    Register.this.startActivity(new Intent(Register.this, userProfile.class));
+//                    Register.this.startActivity(new Intent(Register.this, userProfile.class));
+//                    Register.this.finish();
+
+                    Intent intent = new Intent(Register.this,userProfile.class);
+                    intent.putExtra("email",email);
+                    Register.this.startActivity(intent);
                     Register.this.finish();
 
                 } else if (response.code() == 400) {

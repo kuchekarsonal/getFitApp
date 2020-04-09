@@ -3,7 +3,7 @@ package com.example.getfit.Retrofit;
 public class userProfileResult {
    private String email;
    private  Float height;
-   private  Float weight;
+   private  Float current_weight;
    private  String activity_level;
    private String gender;
    private Integer age;
@@ -12,7 +12,7 @@ public class userProfileResult {
     public userProfileResult(String email, Float height, Float weight, String activity_level, String gender, Integer age, Float goal_weight) {
         this.email = email;
         this.height = height;
-        this.weight = weight;
+        this.current_weight = weight;
         this.activity_level = activity_level;
         this.gender = gender;
         this.age = age;
@@ -28,7 +28,7 @@ public class userProfileResult {
     }
 
     public void setWeight(Float weight) {
-        this.weight = weight;
+        this.current_weight = weight;
     }
 
     public void setActivity_level(String activity_level) {
