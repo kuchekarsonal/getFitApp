@@ -1,15 +1,23 @@
 package com.example.getfit.Retrofit;
 
+import com.google.gson.annotations.SerializedName;
+
 public class userProfileResult {
    private String email;
-   private  Float height;
-   private  Float current_weight;
+   private  float height;
+   private  float current_weight;
    private  String activity_level;
    private String gender;
-   private Integer age;
-   private Float goal_weight;
+   private int age;
+   private float goal_weight;
+   @SerializedName("bmi")
+   private float BMI;
+   @SerializedName("bmr")
+   private float BMR;
+   @SerializedName("calorieCount")
+   private float requiredCalCount;
 
-    public userProfileResult(String email, Float height, Float weight, String activity_level, String gender, Integer age, Float goal_weight) {
+    public userProfileResult(String email, float height, float weight, String activity_level, String gender, int age, float goal_weight, float BMI,float BMR, float requiredCalCount) {
         this.email = email;
         this.height = height;
         this.current_weight = weight;
@@ -17,17 +25,20 @@ public class userProfileResult {
         this.gender = gender;
         this.age = age;
         this.goal_weight = goal_weight;
+        this.BMI = BMI;
+        this.BMR = BMR;
+        this.requiredCalCount = requiredCalCount;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setHeight(Float height) {
+    public void setHeight(float height) {
         this.height = height;
     }
 
-    public void setWeight(Float weight) {
+    public void setWeight(float weight) {
         this.current_weight = weight;
     }
 
@@ -39,13 +50,75 @@ public class userProfileResult {
         this.gender = gender;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
     public void setGoal_weight(Float goal_weight) {
         this.goal_weight = goal_weight;
     }
+
+    public void setBMI(float BMI) {
+        this.BMI = BMI;
+    }
+
+    public void setCurrent_weight(float current_weight) {
+        this.current_weight = current_weight;
+    }
+
+    public void setBMR(float BMR) {
+        this.BMR = BMR;
+    }
+
+    public void setGoal_weight(float goal_weight) {
+        this.goal_weight = goal_weight;
+    }
+
+    public void setRequiredCalCount(float requiredCalCount) {
+        this.requiredCalCount = requiredCalCount;
+    }
+
+
+    public float getBMI() {
+        return BMI;
+    }
+
+    public float getCurrent_weight() {
+        return current_weight;
+    }
+
+    public float getBMR() {
+        return BMR;
+    }
+
+    public float getGoal_weight() {
+        return goal_weight;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public float getRequiredCalCount() {
+        return requiredCalCount;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getActivity_level() {
+        return activity_level;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
 }
 
 //

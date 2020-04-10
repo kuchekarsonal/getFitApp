@@ -15,6 +15,7 @@ import com.example.getfit.Fragments.Fragment_Analysis;
 import com.example.getfit.Fragments.Fragment_Home;
 import com.example.getfit.Fragments.Fragment_dietPlan;
 import com.example.getfit.Fragments.Fragment_userProfile;
+import com.example.getfit.Fragments.NewRegistrationDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Diet extends AppCompatActivity {
@@ -43,6 +44,8 @@ public class Diet extends AppCompatActivity {
         fragmentUserProfile = new Fragment_userProfile();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.mainframeLayout,fragmentHome).commit();
+
+        checkNewRegistration();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -75,5 +78,15 @@ public class Diet extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.mainframeLayout, fragment).commit();
             }
         });
+    }
+
+    private void checkNewRegistration(){
+        if(getIntent().hasExtra("New Registration")) {
+            if (getIntent().getExtras().getBoolean("New Registration")) {
+                //Opening Dialog Box
+                NewRegistrationDialog dialog = new NewRegistrationDialog();
+                dialog.show(getSupportFragmentManager(), "New Registration Dialog");
+            }
+        }
     }
 }
