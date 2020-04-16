@@ -192,12 +192,15 @@
                 android:layout_marginLeft="16dp"
                 android:text="Breakfast"
                 android:textColor="#000000"/>
-            <view
+            <!--<view-->
 
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#000000"/>
-
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#000000"/>-->
+            <!--<androidx.recyclerview.widget.RecyclerView-->
+                <!--android:id="@+id/recyclerViewBreakfast"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"/>-->
 
 
             <LinearLayout
@@ -240,11 +243,11 @@
                     android:layout_marginLeft="16dp"
                     android:text="Lunch"
                     android:textColor="#000000"/>
-                <view
+                <!--<view-->
 
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#000000"/>
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="#000000"/>-->
 
 
 
@@ -287,11 +290,11 @@
                     android:layout_marginLeft="16dp"
                     android:text="Dinner"
                     android:textColor="#000000"/>
-                <view
+                <!--<view-->
 
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#000000"/>
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="#000000"/>-->
 
 
 
