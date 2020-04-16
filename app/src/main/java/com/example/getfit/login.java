@@ -84,6 +84,7 @@ public class login extends AppCompatActivity {
                 if(response.code()  == 200)
                 {
                     LoginResult result = response.body();
+                    ((MyApplication)login.this.getApplication()).setUserEmail(email);
                     Toast.makeText(login.this,
                             "Welcome to getFit App", Toast.LENGTH_LONG).show();
                     login.this.startActivity(new Intent(login.this, Diet.class));

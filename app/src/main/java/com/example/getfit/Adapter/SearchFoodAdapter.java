@@ -26,6 +26,8 @@ public class SearchFoodAdapter extends RecyclerView.Adapter<SearchFoodAdapter.Vi
     private List<SearchFoodItem> foodItems;
     private  List<SearchFoodItem> foodItemsFull;
 
+    private String mealType;
+
     private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -42,10 +44,11 @@ public class SearchFoodAdapter extends RecyclerView.Adapter<SearchFoodAdapter.Vi
         }
     }
 
-    public SearchFoodAdapter(Context context, List<SearchFoodItem> foodItems) {
+    public SearchFoodAdapter(Context context, List<SearchFoodItem> foodItems, String mealType) {
         this.foodItems = foodItems;
         this.foodItemsFull = new ArrayList<>(foodItems);
         this.context = context;
+        this.mealType = mealType;
     }
 
     @NonNull
@@ -69,6 +72,7 @@ public class SearchFoodAdapter extends RecyclerView.Adapter<SearchFoodAdapter.Vi
                 intent.putExtra("cal_count",currentItem.getCalories());
                 intent.putExtra("collection",currentItem.getCollection());
                 intent.putExtra("category",currentItem.getCategory());
+                intent.putExtra("MealType",mealType);
                 context.startActivity(intent);
             }
         });

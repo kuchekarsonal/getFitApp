@@ -23,8 +23,8 @@ public interface RetrofitInterface {
      * @param post
      * @return
      */
-    @POST("/questionnaire/{email}")
-    Call<userProfileResult> createUserProfile(@Body userProfileResult post, @Path("email") String email);
+    @POST("/questionnaire")
+    Call<userProfileResult> createUserProfile(@Body userProfileResult post);
 
     @GET("/addBreakfast/{email}")
     Call<List<AddMealItem>> getBreakfast(@Path("email") String email);
@@ -38,11 +38,20 @@ public interface RetrofitInterface {
     @GET("/search")
     Call<List<SearchFoodItem>> getFoodItems();
 
-//    @GET("/search/{foodItem}")
-//    Call<List<Post>> getPosts(@Path("foodItem") String foodItem);
-
     @GET("/search/{collection}/{category}/{foodItem}")
     Call<SearchFoodDetails> getFoodDetails(@Path("collection") String collection, @Path("foodItem") String foodItem,@Path("category") String category);
+
+    @GET("/getInfo/calorieMacros/{email}")
+    Call<HomeFragmentDetails> getHomeFragDetails(@Path("email") String email);
+
+    @POST("/getInfo/breakfast")
+    Call<AddMealItem> addBreakfast(@ Body AddMealItem mealItem);
+
+    @POST("/getInfo/lunch")
+    Call<AddMealItem> addLunch(@ Body AddMealItem mealItem);
+
+    @POST("/getInfo/dinner")
+    Call<AddMealItem> addDinner(@ Body AddMealItem mealItem);
 
 
 }

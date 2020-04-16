@@ -34,6 +34,7 @@ public class SearchActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
 
+    private String mealType;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,9 @@ public class SearchActivity extends AppCompatActivity {
         retrofit = RetrofitClient.getInstance();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+        if(getIntent().hasExtra("MealType")){
+            mealType = getIntent().getStringExtra("MealType");
+        }
         searchFood();
     }
 
@@ -74,7 +78,7 @@ public class SearchActivity extends AppCompatActivity {
                 List<SearchFoodItem> foodItems = response.body();
 
 
-                adapter = new SearchFoodAdapter(SearchActivity.this,foodItems);
+                adapter = new SearchFoodAdapter(SearchActivity.this,foodItems,mealType);
                 recyclerView.setAdapter(adapter);
 //                for(FoodItem item: foodItems){
 //                    String content = "";

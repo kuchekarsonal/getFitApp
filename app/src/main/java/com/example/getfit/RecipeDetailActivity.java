@@ -2,6 +2,8 @@ package com.example.getfit;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +26,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
 
+    private String mealType,recipeNameString;
+    private float calCountValue;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,21 +41,31 @@ public class RecipeDetailActivity extends AppCompatActivity {
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         getIncomingIntent();
+
+        Button add = findViewById(R.id.add_button);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addUserMeal(mealType,recipeNameString,calCountValue);
+            }
+        });
+
     }
 
     private void getIncomingIntent(){
         if(getIntent().hasExtra("recipe_name") && getIntent().hasExtra("cal_count")){
 
-            String RecipeNameString = getIntent().getStringExtra("recipe_name");
-            Float CalCountValue = getIntent().getFloatExtra("cal_count",0);
+            recipeNameString = getIntent().getStringExtra("recipe_name");
+            calCountValue = getIntent().getFloatExtra("cal_count",0);
             String collection = getIntent().getStringExtra("collection");
             String category = getIntent().getStringExtra("category");
+            mealType = getIntent().getStringExtra("MealType");
 
-            getDetails(collection,RecipeNameString,category);
+            getDetails(collection,recipeNameString,category);
             TextView RecipeName = findViewById(R.id.RecipeDetailName);
             TextView CalCount = findViewById(R.id.RecipeDetailCalCount);
-            RecipeName.setText(RecipeNameString);
-            CalCount.setText(CalCountValue +" cal");
+            RecipeName.setText(recipeNameString);
+            CalCount.setText(calCountValue +" cal");
         }
     }
 
@@ -86,5 +101,13 @@ public class RecipeDetailActivity extends AppCompatActivity {
                 Log.d("MainActivity","Error in Fetching Retrofit data from API");
             }
         });
+    }
+
+    private void addUserMeal(String mealType,String recipeNameString,float calCountValue){
+        if(mealType == "Breakfast"){
+            AddMealItem mealItem = new AddMealItem(recipeNameString,String.valueOf(calCountValue));
+            Call<AddMealItem> call = retrofitInterface.addBreakfast(mealItem);
+        }
+
     }
 }

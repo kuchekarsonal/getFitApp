@@ -4,17 +4,20 @@ package com.example.getfit.Fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getfit.Adapter.*;
 import com.example.getfit.AddMealItem;
 import com.example.getfit.Diet;
 import com.example.getfit.R;
+import com.example.getfit.Retrofit.HomeFragmentDetails;
 import com.example.getfit.Retrofit.RetrofitClient;
 import com.example.getfit.Retrofit.RetrofitInterface;
 import com.example.getfit.SearchActivity;
@@ -47,6 +50,10 @@ public class Fragment_Home extends Fragment {
     private RetrofitInterface retrofitInterface;
 
     private Button addBreakfastButton;
+    private Button addLunchButton;
+    private Button addDinnerButton;
+
+    private TextView caloriesValue,fatValue, carbsValue, proteinValue;
 
     public Fragment_Home() {
         // Required empty public constructor
@@ -65,6 +72,10 @@ public class Fragment_Home extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_fragment__home, container, false);
 
+        caloriesValue = view.findViewById(R.id.calorie_value);
+        fatValue = view.findViewById(R.id.fats_val);
+        carbsValue = view.findViewById(R.id.carbs_val);
+        proteinValue = view.findViewById(R.id.protein_val);
 
         //Init Service
         retrofit = RetrofitClient.getInstance();
@@ -97,24 +108,12 @@ public class Fragment_Home extends Fragment {
        recyclerViewDinner = (RecyclerView)view.findViewById(R.id.addDinnerList);
 
 
-//        MealAdapter lunchMealAdapter = new MealAdapter(lunchMealItems);
-//        recyclerViewLunch.setAdapter(lunchMealAdapter);
-//        RecyclerView.LayoutManager layoutManagerLunch = new LinearLayoutManager(getActivity());
-//        recyclerViewLunch.setLayoutManager(layoutManagerLunch);
-//
-//        MealAdapter dinnerMealAdapter = new MealAdapter(dinnerMealItems);
-//        recyclerViewDinner.setAdapter(dinnerMealAdapter);
-//        RecyclerView.LayoutManager layoutManagerDinner = new LinearLayoutManager(getActivity());
-//        recyclerViewDinner.setLayoutManager(layoutManagerDinner);
-
-//        return inflater.inflate(R.layout.fragment_fragment__home, container, false);
-
         addBreakfastButton = view.findViewById(R.id.add_breakfast_button);
         addBreakfastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), SearchActivity.class);
-                intent.putExtra("Meal Name","Breakfast");
+                intent.putExtra("MealType","Breakfast");
                 getActivity().startActivity(intent);
                 getActivity().finish();
             }
@@ -210,7 +209,30 @@ public class Fragment_Home extends Fragment {
     }
 
     private void setDetails(){
+        Log.d("Home Fragment Details",userEmail);
+        Call<HomeFragmentDetails> detailsCall = retrofitInterface.getHomeFragDetails(userEmail);
+        detailsCall.enqueue(new Callback<HomeFragmentDetails>() {
+            @Override
+            public void onResponse(Call<HomeFragmentDetails> call, Response<HomeFragmentDetails> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getActivity(),"Some failure in fragment home", Toast.LENGTH_SHORT).show();
+                }else{
 
+                    HomeFragmentDetails details = response.body();
+                    caloriesValue.setText(String.valueOf(details.getCalories()));
+                    fatValue.setText(String.valueOf(details.getFat()));
+                    carbsValue.setText(String.valueOf(details.getCarbohydrates()));
+                    proteinValue.setText(String.valueOf(details.getProtein()));
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HomeFragmentDetails> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

@@ -108,7 +108,7 @@ public class userProfile extends AppCompatActivity {
                         height,weight,activityLevel,gender,age,goalWeight,BMI,BMR,requiredCalCount);
 
 
-                Call<userProfileResult> call =retrofitInterface.createUserProfile(post,email);
+                Call<userProfileResult> call =retrofitInterface.createUserProfile(post);
                 call.enqueue(new Callback<userProfileResult>() {
                     @Override
                     public void onResponse(Call<userProfileResult> call, Response<userProfileResult> response) {
