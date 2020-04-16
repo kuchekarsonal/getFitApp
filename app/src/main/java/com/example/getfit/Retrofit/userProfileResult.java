@@ -10,6 +10,7 @@ public class userProfileResult {
    private String gender;
    private int age;
    private float goal_weight;
+
    @SerializedName("bmi")
    private float BMI;
    @SerializedName("bmr")

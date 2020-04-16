@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grad_calorie_display"
+    android:background="#F00B0A08"
     tools:context=".Fragments.Fragment_Home">
 
     <!-- TODO: Update blank fragment layout -->
@@ -165,16 +166,165 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-
-        android:id="@+id/textview"
-        android:layout_below="@+id/calorie_display"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="Welcome to Home fragment" />
+        android:layout_height="430dp"
+        android:layout_below="@+id/calorie_display"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="1dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#ffffff"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:layout_marginLeft="16dp"
+                android:text="Breakfast"
+                android:textColor="#000000"/>
+            <view
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000"/>
+
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="16dp"
+                    android:id="@+id/imageView"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/breakfast" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/addBreakfastList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Add Breakfast">
+
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:layout_marginLeft="16dp"
+                    android:text="Lunch"
+                    android:textColor="#000000"/>
+                <view
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000"/>
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginLeft="16dp"
+                        android:id="@+id/imgLunch"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/lunch" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/addLunchList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Add Lunch">
+
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:layout_marginLeft="16dp"
+                    android:text="Dinner"
+                    android:textColor="#000000"/>
+                <view
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000"/>
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginLeft="16dp"
+                        android:id="@+id/imgDinner"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/dinner" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/addDinnerList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Add Dinner">
+
+                </Button>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
