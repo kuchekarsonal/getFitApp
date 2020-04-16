@@ -1,6 +1,7 @@
 package com.example.getfit.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.getfit.Diet;
+import com.example.getfit.MyApplication;
 import com.example.getfit.R;
 
 
@@ -16,18 +19,26 @@ import com.example.getfit.R;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Home extends Fragment {
-
-
+    private Diet dietActivity;
+    private String userEmail;
     public Fragment_Home() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        dietActivity = (Diet) context;
+        userEmail = dietActivity.userEmail;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment__home, container, false);
+
+
     }
 
 }

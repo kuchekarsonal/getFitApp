@@ -15,8 +15,10 @@ public class NewRegistrationDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        Bundle bundle = getArguments();
+        float calories = bundle.getFloat("Calories");
         builder.setTitle("Welcome")
-                .setMessage("Your daily Required Calorie Count is : 1500 kcals")
+                .setMessage("Your daily Required Calorie Count is : "+calories+" kcals")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

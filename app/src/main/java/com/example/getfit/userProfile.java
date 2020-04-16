@@ -121,6 +121,7 @@ public class userProfile extends AppCompatActivity {
 
                             Intent intent = new Intent(userProfile.this,Diet.class);
                             intent.putExtra("New Registration",true);
+                            intent.putExtra("Calories",requiredCalCount);
                             userProfile.this.startActivity(intent);
                             userProfile.this.finish();
                         }

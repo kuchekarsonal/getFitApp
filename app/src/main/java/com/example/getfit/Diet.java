@@ -21,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Diet extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FrameLayout mMainFrame;
+    public String userEmail;
 
     //fragments
     private Fragment_Home fragmentHome;
@@ -33,6 +34,11 @@ public class Diet extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet);
+
+        if(((MyApplication)this.getApplication()).getUserEmail() != null)
+        {
+            userEmail = ((MyApplication)this.getApplication()).getUserEmail();
+        }
 
         bottomNavigationView = findViewById(R.id.nav_main);
         mMainFrame = findViewById(R.id.mainframeLayout);
@@ -81,11 +87,15 @@ public class Diet extends AppCompatActivity {
     }
 
     private void checkNewRegistration(){
-        if(getIntent().hasExtra("New Registration")) {
+        if(getIntent().hasExtra("New Registration") && getIntent().hasExtra("Calories")) {
             if (getIntent().getExtras().getBoolean("New Registration")) {
                 //Opening Dialog Box
                 NewRegistrationDialog dialog = new NewRegistrationDialog();
+                Bundle bundle = new Bundle();
+                bundle.putFloat("Calories",getIntent().getExtras().getFloat("Calories"));
+                dialog.setArguments(bundle);
                 dialog.show(getSupportFragmentManager(), "New Registration Dialog");
+
             }
         }
     }

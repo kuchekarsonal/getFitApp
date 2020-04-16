@@ -100,6 +100,7 @@ public class Register extends AppCompatActivity {
 
                     Intent intent = new Intent(Register.this,userProfile.class);
                     intent.putExtra("email",email);
+                    ((MyApplication)Register.this.getApplication()).setUserEmail(email);
                     Register.this.startActivity(intent);
                     Register.this.finish();
 
