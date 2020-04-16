@@ -40,7 +40,7 @@ public class addMealAdapter extends RecyclerView.Adapter {
         private ImageView img;
         private TextView addText;  //for addBreakfast/ lunch/dinner
         private mealHolder(View itemView){
-            super(itemView);
+            super(itemView);hiy pull
             img =(ImageView)itemView.findViewById(R.id.addimg);
             addText = (TextView)itemView.findViewById(R.id.addText);
             itemView.setOnClickListener(this);

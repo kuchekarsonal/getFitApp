@@ -13,9 +13,10 @@ import com.example.getfit.AddMealItem;
 import com.example.getfit.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.viewHolder> {
-    private ArrayList<AddMealItem> mealItems;
+    private List<AddMealItem> mealItems;
 
     public static class viewHolder extends RecyclerView.ViewHolder {
 
@@ -29,7 +30,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.viewHolder> {
         }
     }
 
-    public MealAdapter(ArrayList<AddMealItem> mealItems) {
+    public MealAdapter(List<AddMealItem> mealItems) {
         this.mealItems = mealItems;
     }
 
