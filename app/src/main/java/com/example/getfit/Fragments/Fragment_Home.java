@@ -2,11 +2,13 @@ package com.example.getfit.Fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.getfit.Adapter.*;
@@ -15,6 +17,7 @@ import com.example.getfit.Diet;
 import com.example.getfit.R;
 import com.example.getfit.Retrofit.RetrofitClient;
 import com.example.getfit.Retrofit.RetrofitInterface;
+import com.example.getfit.SearchActivity;
 import com.example.getfit.userProfile;
 
 import androidx.fragment.app.Fragment;
@@ -43,6 +46,8 @@ public class Fragment_Home extends Fragment {
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
 
+    private Button addBreakfastButton;
+
     public Fragment_Home() {
         // Required empty public constructor
     }
@@ -65,6 +70,7 @@ public class Fragment_Home extends Fragment {
         retrofit = RetrofitClient.getInstance();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+        setDetails();
 
         getBreakfast();
 
@@ -88,21 +94,31 @@ public class Fragment_Home extends Fragment {
 
        recyclerViewLunch = (RecyclerView)view.findViewById(R.id.addLunchList);
 
+       recyclerViewDinner = (RecyclerView)view.findViewById(R.id.addDinnerList);
 
-        MealAdapter lunchMealAdapter = new MealAdapter(lunchMealItems);
-        recyclerViewLunch.setAdapter(lunchMealAdapter);
-        RecyclerView.LayoutManager layoutManagerLunch = new LinearLayoutManager(getActivity());
-        recyclerViewLunch.setLayoutManager(layoutManagerLunch);
 
-        recyclerViewDinner = (RecyclerView)view.findViewById(R.id.addDinnerList);
-        MealAdapter dinnerMealAdapter = new MealAdapter(dinnerMealItems);
-        recyclerViewDinner.setAdapter(dinnerMealAdapter);
-        RecyclerView.LayoutManager layoutManagerDinner = new LinearLayoutManager(getActivity());
-        recyclerViewDinner.setLayoutManager(layoutManagerDinner);
+//        MealAdapter lunchMealAdapter = new MealAdapter(lunchMealItems);
+//        recyclerViewLunch.setAdapter(lunchMealAdapter);
+//        RecyclerView.LayoutManager layoutManagerLunch = new LinearLayoutManager(getActivity());
+//        recyclerViewLunch.setLayoutManager(layoutManagerLunch);
+//
+//        MealAdapter dinnerMealAdapter = new MealAdapter(dinnerMealItems);
+//        recyclerViewDinner.setAdapter(dinnerMealAdapter);
+//        RecyclerView.LayoutManager layoutManagerDinner = new LinearLayoutManager(getActivity());
+//        recyclerViewDinner.setLayoutManager(layoutManagerDinner);
 
 //        return inflater.inflate(R.layout.fragment_fragment__home, container, false);
 
-
+        addBreakfastButton = view.findViewById(R.id.add_breakfast_button);
+        addBreakfastButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                intent.putExtra("Meal Name","Breakfast");
+                getActivity().startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         return view;
     }
@@ -159,7 +175,8 @@ public class Fragment_Home extends Fragment {
 
             @Override
             public void onFailure(Call<List<AddMealItem>> call, Throwable t) {
-
+                Toast.makeText(getActivity(), t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -186,11 +203,14 @@ public class Fragment_Home extends Fragment {
 
             @Override
             public void onFailure(Call<List<AddMealItem>> call, Throwable t) {
-
+                Toast.makeText(getActivity(), t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    private void setDetails(){
 
+    }
 
 }

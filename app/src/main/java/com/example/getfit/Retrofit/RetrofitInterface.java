@@ -35,6 +35,14 @@ public interface RetrofitInterface {
     @GET("/addDinner/{email}")
     Call<List<AddMealItem>> getDinner(@Path("email") String email);
 
+    @GET("/search")
+    Call<List<SearchFoodItem>> getFoodItems();
+
+//    @GET("/search/{foodItem}")
+//    Call<List<Post>> getPosts(@Path("foodItem") String foodItem);
+
+    @GET("/search/{collection}/{category}/{foodItem}")
+    Call<SearchFoodDetails> getFoodDetails(@Path("collection") String collection, @Path("foodItem") String foodItem,@Path("category") String category);
 
 
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/RecipeImage"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TextView
+        android:id="@+id/RecipeDetailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="RecipeName"
+        android:textSize="24dp"
+        android:textColor="#000"
+        android:layout_margin="8dp"
+        android:layout_below="@+id/RecipeImage"
+        />
+
+    <TextView
+        android:id="@+id/NutritionValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nutritional Value :"
+        android:textSize="22dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/RecipeDetailName"/>
+
+    <TextView
+        android:id="@+id/RecipeDetailCalCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xyz Cal"
+        android:textSize="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/NutritionValues"/>
+
+    <TextView
+        android:id="@+id/RecipeDetailCarbs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xyz g"
+        android:textSize="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/RecipeDetailCalCount"/>
+
+    <TextView
+        android:id="@+id/RecipeDetailFats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xyz g"
+        android:textSize="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/RecipeDetailCarbs"/>
+
+    <TextView
+        android:id="@+id/RecipeDetailProtein"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="xyz g"
+        android:textSize="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@+id/RecipeDetailFats"/>
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD"
+        android:layout_below="@+id/RecipeDetailProtein"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
