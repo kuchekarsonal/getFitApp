@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,8 @@ public class Fragment_Home extends Fragment {
     private Button addDinnerButton;
 
     private TextView caloriesValue,fatValue, carbsValue, proteinValue;
+
+    private ProgressBar caloriesProgress, fatProgress, carbsProgress, proteinProgress;
 
 
     public Fragment_Home() {
@@ -187,9 +190,9 @@ public class Fragment_Home extends Fragment {
                     List<AddMealItem> addLunchItems = response.body();
 
                     MealAdapter LunchMealAdapter = new MealAdapter(addLunchItems);
-                    recyclerViewBreakfast.setAdapter(LunchMealAdapter);
+                    recyclerViewLunch.setAdapter(LunchMealAdapter);
                     RecyclerView.LayoutManager layoutManagerLunch= new LinearLayoutManager(getActivity());
-                    recyclerViewBreakfast.setLayoutManager(layoutManagerLunch);
+                    recyclerViewLunch.setLayoutManager(layoutManagerLunch);
 
 
                 }
@@ -215,9 +218,9 @@ public class Fragment_Home extends Fragment {
                     List<AddMealItem> addDinnerItems = response.body();
 
                     MealAdapter DinnerMealAdapter = new MealAdapter(addDinnerItems);
-                    recyclerViewBreakfast.setAdapter(DinnerMealAdapter);
+                    recyclerViewDinner.setAdapter(DinnerMealAdapter);
                     RecyclerView.LayoutManager layoutManagerDinner = new LinearLayoutManager(getActivity());
-                    recyclerViewBreakfast.setLayoutManager(layoutManagerDinner);
+                    recyclerViewDinner.setLayoutManager(layoutManagerDinner);
 
 
                 }

@@ -5,10 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getfit.Fragments.Fragment_Analysis;
@@ -17,6 +23,8 @@ import com.example.getfit.Fragments.Fragment_dietPlan;
 import com.example.getfit.Fragments.Fragment_userProfile;
 import com.example.getfit.Fragments.NewRegistrationDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.w3c.dom.Text;
 
 public class Diet extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -28,7 +36,8 @@ public class Diet extends AppCompatActivity {
     private Fragment_dietPlan fragmentDietPlan;
     private Fragment_Analysis fragmentAnalysis;
     private Fragment_userProfile fragmentUserProfile;
-
+    private TextView caloriesTextView;
+    private Button close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,11 +99,31 @@ public class Diet extends AppCompatActivity {
         if(getIntent().hasExtra("New Registration") && getIntent().hasExtra("Calories")) {
             if (getIntent().getExtras().getBoolean("New Registration")) {
                 //Opening Dialog Box
-                NewRegistrationDialog dialog = new NewRegistrationDialog();
-                Bundle bundle = new Bundle();
-                bundle.putFloat("Calories",getIntent().getExtras().getFloat("Calories"));
-                dialog.setArguments(bundle);
-                dialog.show(getSupportFragmentManager(), "New Registration Dialog");
+//                NewRegistrationDialog dialog = new NewRegistrationDialog();
+//                Bundle bundle = new Bundle();
+//                bundle.putFloat("Calories",getIntent().getExtras().getFloat("Calories"));
+//                dialog.setArguments(bundle);
+//                dialog.show(getSupportFragmentManager(), "New Registration Dialog");
+
+
+                final Dialog newRegDialog = new Dialog(this);
+                newRegDialog.setContentView(R.layout.new_registration_dialog);
+                float calories = getIntent().getExtras().getFloat("Calories");
+                close = newRegDialog.findViewById(R.id.new_reg_dialog_btn);
+                caloriesTextView = newRegDialog.findViewById(R.id.new_reg_calories_value);
+
+                caloriesTextView.setText("Your daily required Calories is "+String.valueOf(calories)+ " kcals.");
+
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        newRegDialog.dismiss();
+                    }
+                });
+
+                newRegDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                newRegDialog.show();
+
 
             }
         }
