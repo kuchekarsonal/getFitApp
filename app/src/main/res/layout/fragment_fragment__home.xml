@@ -172,18 +172,21 @@
         android:layout_below="@+id/calorie_display"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="5dp"
+
         android:layout_marginBottom="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#C4FFFFFF"
+
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bghome"
                 android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
@@ -219,7 +222,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/addBreakfastList"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp" />
 
             </LinearLayout>
                 <Button
@@ -237,6 +241,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bghome"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
@@ -285,6 +291,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bghome"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
