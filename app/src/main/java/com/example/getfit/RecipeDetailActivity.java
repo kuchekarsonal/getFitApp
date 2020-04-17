@@ -1,11 +1,13 @@
 package com.example.getfit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 public class RecipeDetailActivity extends AppCompatActivity {
 
@@ -104,10 +108,24 @@ public class RecipeDetailActivity extends AppCompatActivity {
     }
 
     private void addUserMeal(String mealType,String recipeNameString,float calCountValue){
-        if(mealType == "Breakfast"){
+
             AddMealItem mealItem = new AddMealItem(recipeNameString,String.valueOf(calCountValue));
-            Call<AddMealItem> call = retrofitInterface.addBreakfast(mealItem);
-        }
+            String userEmail = ((MyApplication) this.getApplication()).getUserEmail();
+            Call<AddMealItem> call = retrofitInterface.addMeal(mealItem,userEmail,mealType);
+            call.enqueue(new Callback<AddMealItem>() {
+                @Override
+                public void onResponse(Call<AddMealItem> call, Response<AddMealItem> response) {
+                    Intent intent = new Intent(RecipeDetailActivity.this,Diet.class);
+                    RecipeDetailActivity.this.startActivity(intent);
+                    RecipeDetailActivity.this.finish();
+                }
+
+                @Override
+                public void onFailure(Call<AddMealItem> call, Throwable t) {
+                    Toast.makeText(RecipeDetailActivity.this, t.getMessage(),
+                            LENGTH_SHORT).show();
+                }
+            });
 
     }
 }

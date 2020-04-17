@@ -44,15 +44,11 @@ public interface RetrofitInterface {
     @GET("/getInfo/calorieMacros/{email}")
     Call<HomeFragmentDetails> getHomeFragDetails(@Path("email") String email);
 
-    @POST("/getInfo/breakfast")
-    Call<AddMealItem> addBreakfast(@ Body AddMealItem mealItem);
+    @POST("/addMeal/{email}/{mealType}")
+    Call<AddMealItem> addMeal(@ Body AddMealItem mealItem,@Path("email") String email, @Path("mealType") String mealType);
 
-    @POST("/getInfo/lunch")
-    Call<AddMealItem> addLunch(@ Body AddMealItem mealItem);
-
-    @POST("/getInfo/dinner")
-    Call<AddMealItem> addDinner(@ Body AddMealItem mealItem);
-
+    @GET("/getMeal/{email}/{mealType}")
+    Call<List<AddMealItem>> getMeal(@Path("email") String email,@Path("mealType") String mealType);
 
 }
 //    String email;

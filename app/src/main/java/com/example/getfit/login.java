@@ -93,7 +93,6 @@ public class login extends AppCompatActivity {
 
                 }else if(response.code() == 404)
                 {
-
                    Toast.makeText(login.this, "Wrong Credentials", LENGTH_SHORT).show();
                 }
             }

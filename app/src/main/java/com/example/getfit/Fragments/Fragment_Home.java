@@ -126,7 +126,7 @@ public class Fragment_Home extends Fragment {
 
     private void getBreakfast() {
 
-        Call<List<AddMealItem>>  dataBreakfast = retrofitInterface.getBreakfast(userEmail);
+        Call<List<AddMealItem>>  dataBreakfast = retrofitInterface.getMeal(userEmail,"Breakfast");
         dataBreakfast.enqueue(new Callback<List<AddMealItem>>() {
             @Override
             public void onResponse(Call<List<AddMealItem>> call, Response<List<AddMealItem>> response) {
@@ -154,7 +154,7 @@ public class Fragment_Home extends Fragment {
         });
     }
     private void getLunch(){
-        Call<List<AddMealItem>>  dataLunch= retrofitInterface.getLunch(userEmail);
+        Call<List<AddMealItem>>  dataLunch = retrofitInterface.getMeal(userEmail,"Breakfast");
         dataLunch.enqueue(new Callback<List<AddMealItem>>() {
             @Override
             public void onResponse(Call<List<AddMealItem>> call, Response<List<AddMealItem>> response) {
@@ -182,7 +182,7 @@ public class Fragment_Home extends Fragment {
     }
 
     private void getDinner() {
-        Call<List<AddMealItem>> dataDinner = retrofitInterface.getDinner(userEmail);
+        Call<List<AddMealItem>>  dataDinner = retrofitInterface.getMeal(userEmail,"Breakfast");
         dataDinner.enqueue(new Callback<List<AddMealItem>>() {
             @Override
             public void onResponse(Call<List<AddMealItem>> call, Response<List<AddMealItem>> response) {
