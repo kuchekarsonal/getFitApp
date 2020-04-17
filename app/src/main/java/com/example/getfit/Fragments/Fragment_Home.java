@@ -129,7 +129,7 @@ public class Fragment_Home extends Fragment {
                 Intent i = new Intent(getActivity(), SearchActivity.class);
                 i.putExtra("MealType","Lunch");
                 getActivity().startActivity(i);
-
+                getActivity().finish();
             }
         });
 
@@ -177,7 +177,7 @@ public class Fragment_Home extends Fragment {
         });
     }
     private void getLunch(){
-        Call<List<AddMealItem>>  dataLunch = retrofitInterface.getMeal(userEmail,"Breakfast");
+        Call<List<AddMealItem>>  dataLunch = retrofitInterface.getMeal(userEmail,"Lunch");
         dataLunch.enqueue(new Callback<List<AddMealItem>>() {
             @Override
             public void onResponse(Call<List<AddMealItem>> call, Response<List<AddMealItem>> response) {
@@ -205,7 +205,7 @@ public class Fragment_Home extends Fragment {
     }
 
     private void getDinner() {
-        Call<List<AddMealItem>>  dataDinner = retrofitInterface.getMeal(userEmail,"Breakfast");
+        Call<List<AddMealItem>>  dataDinner = retrofitInterface.getMeal(userEmail,"Dinner");
         dataDinner.enqueue(new Callback<List<AddMealItem>>() {
             @Override
             public void onResponse(Call<List<AddMealItem>> call, Response<List<AddMealItem>> response) {
