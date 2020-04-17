@@ -55,6 +55,7 @@ public class Fragment_Home extends Fragment {
 
     private TextView caloriesValue,fatValue, carbsValue, proteinValue;
 
+
     public Fragment_Home() {
         // Required empty public constructor
     }
@@ -109,6 +110,9 @@ public class Fragment_Home extends Fragment {
 
 
         addBreakfastButton = view.findViewById(R.id.add_breakfast_button);
+        addLunchButton = view.findViewById(R.id.addLuchButton);
+        addDinnerButton = view.findViewById(R.id.addDinnerButton);
+
         addBreakfastButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,6 +123,25 @@ public class Fragment_Home extends Fragment {
             }
         });
 
+        addLunchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), SearchActivity.class);
+                i.putExtra("MealType","Lunch");
+                getActivity().startActivity(i);
+
+            }
+        });
+
+         addDinnerButton.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent1 = new Intent(getActivity(), SearchActivity.class);
+                 intent1.putExtra("MealType", "Dinner");
+                 getActivity().startActivity(intent1);
+
+             }
+         });
         return view;
     }
 
@@ -147,9 +170,9 @@ public class Fragment_Home extends Fragment {
 
             @Override
             public void onFailure(Call<List<AddMealItem>> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(),
+               /* Toast.makeText(getActivity(), t.getMessage(),
                         Toast.LENGTH_SHORT).show();
-
+*/
             }
         });
     }

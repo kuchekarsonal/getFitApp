@@ -178,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#ffffff"
+            android:background="#C4FFFFFF"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -232,6 +232,7 @@
                 </Button>
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
@@ -272,6 +273,7 @@
 
                 </LinearLayout>
                 <Button
+                    android:id="@+id/addLuchButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -319,6 +321,7 @@
 
                 </LinearLayout>
                 <Button
+                    android:id="@+id/addDinnerButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
