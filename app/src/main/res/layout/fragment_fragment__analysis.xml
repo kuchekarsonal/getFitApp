@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,10 +8,95 @@
     tools:context=".Fragments.Fragment_Analysis">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Welcome to analysis fragment" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/bghome"
+        android:orientation="vertical">
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="10dp"
+           android:orientation="horizontal">
+
+           <ImageView
+               android:layout_width="40dp"
+               android:layout_height="40dp"
+               android:src="@drawable/glasswater">
+
+           </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="Water">
+
+           </TextView>
+       </LinearLayout>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="396dp"
+
+
+           android:layout_height="71dp"
+           android:layout_margin="8dp">
+
+           <Button
+               android:id="@+id/button2"
+               android:layout_width="52dp"
+               android:layout_height="52dp"
+               android:layout_marginStart="10dp"
+               android:background="@drawable/colorglass"
+               android:text="-"
+               android:textAlignment="center"
+
+               android:textSize="15sp"
+
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintVertical_bias="0.473" />
+
+           <TextView
+               android:id="@+id/textView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+
+               android:layout_marginTop="8dp"
+               android:text="0"
+               android:textSize="20sp"
+               android:textColor="#000000"
+               app:layout_constraintEnd_toStartOf="@+id/button3"
+               app:layout_constraintStart_toEndOf="@+id/button2"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="5dp"
+               android:textColor="#000000"
+               android:text="Glasses"
+               android:textSize="18sp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="@+id/textView"
+               app:layout_constraintStart_toStartOf="@+id/textView" />
+
+           <Button
+               android:id="@+id/button3"
+               android:layout_width="52dp"
+               android:layout_height="52dp"
+               android:layout_gravity="end"
+
+               android:layout_marginEnd="4dp"
+               android:background="@drawable/colorglass"
+               android:text="+"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintVertical_bias="0.473" />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </LinearLayout>
 
 </RelativeLayout>

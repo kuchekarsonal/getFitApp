@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="CALORIES"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="24sp"
             android:layout_centerHorizontal="true"
             />
