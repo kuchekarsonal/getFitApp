@@ -50,6 +50,9 @@ public interface RetrofitInterface {
     @GET("/getMeal/{email}/{mealType}")
     Call<List<AddMealItem>> getMeal(@Path("email") String email,@Path("mealType") String mealType);
 
+    @GET("profile/{email}")
+    Call<MeResult> getPosts(@Path("email") String email);
+
 }
 //    String email;
 //    private float height;

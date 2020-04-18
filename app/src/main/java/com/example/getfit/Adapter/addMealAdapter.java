@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.getfit.Fragments.MyItemRecyclerViewAdapter;
+//import com.example.getfit.Fragments.MyItemRecyclerViewAdapter;
 import com.example.getfit.R;
 
 import androidx.annotation.NonNull;
