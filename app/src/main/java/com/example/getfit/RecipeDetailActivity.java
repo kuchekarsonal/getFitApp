@@ -32,6 +32,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
     private String mealType,recipeNameString;
     private float calCountValue;
+    private float carbs;
+    private float fats;
+    private float protein;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,9 +94,12 @@ public class RecipeDetailActivity extends AppCompatActivity {
                 TextView proteinTextView = findViewById(R.id.RecipeDetailProtein);
                 ImageView recipeImage = findViewById(R.id.RecipeImage);
 
-                carbsTextView.setText("Carbs : "+foodDetails.getCarbohydrates()+" g");
-                fatsTextView.setText("Fats : "+foodDetails.getFats()+" g");
-                proteinTextView.setText("Protein"+foodDetails.getProtein()+" g");
+                carbs = foodDetails.getCarbohydrates();
+                fats = foodDetails.getFats();
+                protein = foodDetails.getProtein();
+                carbsTextView.setText("Carbs : "+carbs+" g");
+                fatsTextView.setText("Fats : "+fats+" g");
+                proteinTextView.setText("Protein"+protein+" g");
 
                 Glide.with(RecipeDetailActivity.this).load(foodDetails.getImg_url()).into(recipeImage);
 
@@ -109,7 +115,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
     private void addUserMeal(String mealType,String recipeNameString,float calCountValue){
 
-            AddMealItem mealItem = new AddMealItem(recipeNameString,String.valueOf(calCountValue));
+            AddMealItem mealItem = new AddMealItem(recipeNameString,calCountValue,carbs,fats,protein);
             String userEmail = ((MyApplication) this.getApplication()).getUserEmail();
             Call<AddMealItem> call = retrofitInterface.addMeal(mealItem,userEmail,mealType);
             call.enqueue(new Callback<AddMealItem>() {
@@ -122,7 +128,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<AddMealItem> call, Throwable t) {
-                    Toast.makeText(RecipeDetailActivity.this, t.getMessage(),
+                    Toast.makeText(RecipeDetailActivity.this,"In RecipeDetailActivity.java addUserMeal" +t.getMessage(),
                             LENGTH_SHORT).show();
                 }
             });

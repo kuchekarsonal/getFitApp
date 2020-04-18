@@ -97,13 +97,13 @@ public class Fragment_Home extends Fragment {
         /*breakFastMealItems.add(new AddMealItem("Demo Brkfast Recipe 1","500 kcals"));
         breakFastMealItems.add(new AddMealItem("Demo Brkfast Recipe 2","700 kcals"));
 */
-        ArrayList<AddMealItem> lunchMealItems = new ArrayList<>();
-        lunchMealItems.add(new AddMealItem("Demo lunch Recipe 1","500 kcals"));
-        lunchMealItems.add(new AddMealItem("Demo lunch Recipe 2","700 kcals"));
-
-        ArrayList<AddMealItem> dinnerMealItems = new ArrayList<>();
-        dinnerMealItems.add(new AddMealItem("Demo dinner Recipe 1","500 kcals"));
-        dinnerMealItems.add(new AddMealItem("Demo dinner Recipe 2","700 kcals"));
+//        ArrayList<AddMealItem> lunchMealItems = new ArrayList<>();
+//        lunchMealItems.add(new AddMealItem("Demo lunch Recipe 1","500 kcals"));
+//        lunchMealItems.add(new AddMealItem("Demo lunch Recipe 2","700 kcals"));
+//
+//        ArrayList<AddMealItem> dinnerMealItems = new ArrayList<>();
+//        dinnerMealItems.add(new AddMealItem("Demo dinner Recipe 1","500 kcals"));
+//        dinnerMealItems.add(new AddMealItem("Demo dinner Recipe 2","700 kcals"));
 
         recyclerViewBreakfast = (RecyclerView)view.findViewById(R.id.addBreakfastList);
 
@@ -256,7 +256,7 @@ public class Fragment_Home extends Fragment {
 
             @Override
             public void onFailure(Call<HomeFragmentDetails> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(),
+                Toast.makeText(getActivity(),"In set Details - Home Fragment" +t.getMessage(),
                         Toast.LENGTH_SHORT).show();
             }
         });

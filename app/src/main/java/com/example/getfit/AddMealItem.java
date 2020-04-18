@@ -2,14 +2,20 @@ package com.example.getfit;
 
 public class AddMealItem {
     private String recipeName;
-    private String caloriesCount;
+    private float caloriesCount;
+    private float carbs;
+    private float fats;
+    private float protein;
 
-    public AddMealItem(String recipeName,String caloriesCount){
+    public AddMealItem(String recipeName,float caloriesCount,float carbs,float fats,float protein){
         this.recipeName = recipeName;
         this.caloriesCount = caloriesCount;
+        this.carbs = carbs;
+        this.fats = fats;
+        this.protein = protein;
     }
 
-    public void setCaloriesCount(String caloriesCount) {
+    public void setCaloriesCount(float caloriesCount) {
         this.caloriesCount = caloriesCount;
     }
 
@@ -17,11 +23,23 @@ public class AddMealItem {
         this.recipeName = recipeName;
     }
 
-    public String getCaloriesCount() {
+    public float getCaloriesCount() {
         return caloriesCount;
     }
 
     public String getRecipeName() {
         return recipeName;
+    }
+
+    public float getCarbs() {
+        return carbs;
+    }
+
+    public float getFats() {
+        return fats;
+    }
+
+    public float getProtein() {
+        return protein;
     }
 }

@@ -16,6 +16,11 @@ public class HomeFragmentDetails {
     @SerializedName("p")
     float protein;
 
+    float eatenCalories;
+    float eatenCarbs;
+    float eatenFats;
+    float eatenProtein;
+
     public HomeFragmentDetails(float calories,float carbohydrates,float fat,float protein){
         this.calories = calories;
         this.carbohydrates = carbohydrates;
@@ -39,4 +44,19 @@ public class HomeFragmentDetails {
         return calories;
     }
 
+    public float getEatenCalories() {
+        return eatenCalories;
+    }
+
+    public float getEatenCarbs() {
+        return eatenCarbs;
+    }
+
+    public float getEatenFats() {
+        return eatenFats;
+    }
+
+    public float getEatenProtein() {
+        return eatenProtein;
+    }
 }

@@ -47,7 +47,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.viewHolder> {
         AddMealItem currentItem = mealItems.get(position);
 
         holder.recipeNameView.setText(currentItem.getRecipeName());
-        holder.calorieCountView.setText(currentItem.getCaloriesCount());
+        holder.calorieCountView.setText(String.valueOf(currentItem.getCaloriesCount()));
     }
 
     @Override
