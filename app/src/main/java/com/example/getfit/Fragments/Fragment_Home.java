@@ -81,6 +81,11 @@ public class Fragment_Home extends Fragment {
         carbsValue = view.findViewById(R.id.carbs_val);
         proteinValue = view.findViewById(R.id.protein_val);
 
+        caloriesProgress = view.findViewById(R.id.calorie_progress);
+        fatProgress = view.findViewById(R.id.fats_progress);
+        carbsProgress = view.findViewById(R.id.carbs_progress);
+        proteinProgress = view.findViewById(R.id.protein_progress);
+
         //Init Service
         retrofit = RetrofitClient.getInstance();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
@@ -237,7 +242,7 @@ public class Fragment_Home extends Fragment {
 
     private void setDetails(){
         Log.d("Home Fragment Details",userEmail);
-        Call<HomeFragmentDetails> detailsCall = retrofitInterface.getHomeFragDetails(userEmail);
+        final Call<HomeFragmentDetails> detailsCall = retrofitInterface.getHomeFragDetails(userEmail);
         detailsCall.enqueue(new Callback<HomeFragmentDetails>() {
             @Override
             public void onResponse(Call<HomeFragmentDetails> call, Response<HomeFragmentDetails> response) {
@@ -246,10 +251,57 @@ public class Fragment_Home extends Fragment {
                 }else{
 
                     HomeFragmentDetails details = response.body();
-                    caloriesValue.setText(String.valueOf(details.getCalories()));
-                    fatValue.setText(String.valueOf(details.getFat()));
-                    carbsValue.setText(String.valueOf(details.getCarbohydrates()));
-                    proteinValue.setText(String.valueOf(details.getProtein()));
+
+                    float calories = details.getCalories();
+                    float fats = details.getFat();
+                    float carbs = details.getCarbohydrates();
+                    float protein = details.getProtein();
+                    float eatencalories = details.getEatenCalories();
+                    float eatenfats = details.getEatenFats();
+                    float eatencarbs = details.getEatenCarbs();
+                    float eatenprotein = details.getEatenProtein();
+                    int calProgValue = 0;
+                    int carbsProgValue = 0;
+                    int fatsProgValue = 0;
+                    int proteinProgValue = 0;
+
+                    caloriesValue.setText(String.valueOf(calories));
+                    fatValue.setText(String.valueOf(fats));
+                    carbsValue.setText(String.valueOf(carbs));
+                    proteinValue.setText(String.valueOf(protein));
+
+                    if(eatencalories < calories){
+                        calProgValue = Math.round(eatencalories*100/calories);
+                    }
+                    else{
+                        calProgValue = 100;
+                    }
+
+                    if(eatenfats < fats){
+                        fatsProgValue = Math.round(eatenfats*100/fats);
+                    }
+                    else{
+                        fatsProgValue = 100;
+                    }
+
+                    if(eatencarbs < carbs){
+                        carbsProgValue = Math.round(eatencarbs*100/carbs);
+                    }
+                    else{
+                        carbsProgValue = 100;
+                    }
+
+                    if(eatenprotein < protein) {
+                        proteinProgValue = Math.round(eatenprotein*100/protein);
+                    }
+                    else {
+                        proteinProgValue = 100;
+                    }
+
+                    caloriesProgress.setProgress(calProgValue);
+                    carbsProgress.setProgress(carbsProgValue);
+                    proteinProgress.setProgress(proteinProgValue);
+                    fatProgress.setProgress(fatsProgValue);
 
                 }
             }
