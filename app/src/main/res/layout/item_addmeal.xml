@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 
-    android:orientation="vertical"
+    android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
      android:layout_marginTop="2dp"
@@ -13,8 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/brawler"
-
-        android:text="Butter Chicken"
+        android:text="Butter Chicken - "
         android:textSize="20sp" />
 
     <TextView
@@ -23,5 +22,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/brawler"
         android:text="490kcal"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="end"
+        android:textColor="#000"
         android:textSize="18sp" />
 </LinearLayout>

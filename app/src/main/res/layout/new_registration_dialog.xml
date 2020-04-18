@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
+
         app:cardBackgroundColor="@color/colorGreenLight"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
