@@ -5,12 +5,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.getfit.MyApplication;
 import com.example.getfit.R;
 import com.example.getfit.Retrofit.MeResult;
 import com.example.getfit.Retrofit.RetrofitClient;
@@ -42,7 +44,7 @@ public class Fragment_userProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_fragment__home, container, false);
+        View view =  inflater.inflate(R.layout.fragment_fragment_user_profile, container, false);
         nameTextView = view.findViewById(R.id.name_id);
         weightTextView = view.findViewById(R.id.weight_id);
         heightTextView = view.findViewById(R.id.height_id);
@@ -54,7 +56,7 @@ public class Fragment_userProfile extends Fragment {
         retrofit = RetrofitClient.getInstance();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<MeResult> call = retrofitInterface.getPosts("yuvraj@gmail.com");
+        Call<MeResult> call = retrofitInterface.getPosts(((MyApplication)getActivity().getApplication()).getUserEmail());
         call.enqueue(new Callback<MeResult>() {
             @Override
             public void onResponse(Call<MeResult> call, Response<MeResult> response) {
@@ -64,6 +66,7 @@ public class Fragment_userProfile extends Fragment {
                 }
                 else{
                     MeResult p = response.body();
+                    Log.d("Fragment User Profile",p.getName());
                     nameTextView.setText(p.getName());
                     weightTextView.setText("Weight : " + p.getCurrentWeight());
                     goalWeightTextView.setText("Goal Weight : " + p.getGoalWeight());

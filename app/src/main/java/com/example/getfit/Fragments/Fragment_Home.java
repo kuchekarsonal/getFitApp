@@ -86,6 +86,7 @@ public class Fragment_Home extends Fragment {
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         setDetails();
+        setProgress();
 
         getBreakfast();
 
@@ -259,6 +260,10 @@ public class Fragment_Home extends Fragment {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void setProgress(){
+
     }
 
 }
