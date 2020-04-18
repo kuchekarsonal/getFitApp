@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".userProfile"/>
-        <activity android:name=".Diet" />
+        <activity android:name=".Diet"
+            android:theme="@style/DietTheme"/>
         <activity android:name=".RecipeDetailActivity"/>
         <activity android:name=".SearchActivity"/>
         <activity

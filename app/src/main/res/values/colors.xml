@@ -9,4 +9,18 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorAccent2">#FF4081</color>
 
+
+    <!--Color Palatte1 -->
+    <color name="colorDarkP1">#264653</color>
+    <color name="colorGreenP1">#2a9d8f</color>
+    <color name="colorYellowP1">#e9c46a</color>
+    <color name="colorOrangeLightP1">#f4a261</color>
+    <color name="colorOrangeP1">#e76f51</color>
+
+    <!--Color Palatte2 -->
+    <color name="colorOrangeP2">#ffac81</color>
+    <color name="colorPinkP2">#ff928b</color>
+    <color name="colorPeachP2">#fec3a6</color>
+    <color name="colorLemonGreenP2">#efe9ae</color>
+    <color name="colorGreenP2">#cdeac0</color>
 </resources>

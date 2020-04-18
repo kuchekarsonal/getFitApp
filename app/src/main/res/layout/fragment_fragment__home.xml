@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F00B0A08"
+    android:background="#fff"
     tools:context=".Fragments.Fragment_Home">
 
+    <!--#F00B0A08-->
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/calorie_display"
         android:layout_width="match_parent"
+        app:cardBackgroundColor="@color/colorYellowP1"
         android:layout_height="300dp"
+        android:padding="10dp"
+        app:cardElevation="10dp"
         >
 
     <RelativeLayout
-        android:background="#EDB5C5"
+        android:id="@+id/calories_card_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -26,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="CALORIES"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="24sp"
             android:layout_centerHorizontal="true"
             />
@@ -49,7 +53,7 @@
             android:layout_marginTop="10dp"
             android:layout_below="@+id/calorie_progress"
             android:text="1500 Kcal left"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
             />
@@ -63,7 +67,7 @@
             android:layout_below="@+id/calorie_value"
             android:layout_alignParentLeft="true"
             android:text="CARBS"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="20sp"
             />
 
@@ -85,7 +89,7 @@
             android:layout_marginLeft="30dp"
             android:layout_below="@+id/carbs_progress"
             android:text="400 g left"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="16sp"
             android:layout_alignParentLeft="true"
 
@@ -99,7 +103,7 @@
             android:layout_marginTop="10dp"
             android:layout_below="@+id/calorie_value"
             android:text="PROTEIN"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="20sp"
             android:layout_centerHorizontal="true"
             />
@@ -120,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/protein_progress"
             android:text="150 g left"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
             />
@@ -134,7 +138,7 @@
             android:layout_below="@+id/calorie_value"
             android:layout_alignParentRight="true"
             android:text="FATS"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="20sp"
             android:layout_centerHorizontal="true"
             />
@@ -158,13 +162,28 @@
             android:layout_below="@+id/fats_progress"
             android:layout_alignParentRight="true"
             android:text="230 g left"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="16sp"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 
+
+
+
     </androidx.cardview.widget.CardView>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/wave_asset"-->
+        <!--android:layout_below="@id/calorie_display"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/ic_wave_pink"-->
+
+        <!--/>-->
+
+
 
     <ScrollView
         android:layout_width="match_parent"

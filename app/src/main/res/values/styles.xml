@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="DietTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorYellowP1</item>
+        <item name="colorPrimaryDark">@color/colorDarkP1</item>
+        <item name="colorAccent">@color/colorOrangeP1</item>
+    </style>
+
 </resources>
