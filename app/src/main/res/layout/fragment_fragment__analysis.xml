@@ -42,7 +42,7 @@
            android:layout_margin="8dp">
 
            <Button
-               android:id="@+id/button2"
+               android:id="@+id/decrement"
                android:layout_width="52dp"
                android:layout_height="52dp"
                android:layout_marginStart="10dp"
@@ -58,7 +58,7 @@
                app:layout_constraintVertical_bias="0.473" />
 
            <TextView
-               android:id="@+id/textView"
+               android:id="@+id/tvCount"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
 
@@ -66,8 +66,8 @@
                android:text="0"
                android:textSize="20sp"
                android:textColor="#000000"
-               app:layout_constraintEnd_toStartOf="@+id/button3"
-               app:layout_constraintStart_toEndOf="@+id/button2"
+               app:layout_constraintEnd_toStartOf="@+id/increment"
+               app:layout_constraintStart_toEndOf="@+id/decrement"
                app:layout_constraintTop_toTopOf="parent" />
 
            <TextView
@@ -78,11 +78,11 @@
                android:text="Glasses"
                android:textSize="18sp"
                app:layout_constraintBottom_toBottomOf="parent"
-               app:layout_constraintEnd_toEndOf="@+id/textView"
-               app:layout_constraintStart_toStartOf="@+id/textView" />
+               app:layout_constraintEnd_toEndOf="@+id/tvCount"
+               app:layout_constraintStart_toStartOf="@+id/tvCount" />
 
            <Button
-               android:id="@+id/button3"
+               android:id="@+id/increment"
                android:layout_width="52dp"
                android:layout_height="52dp"
                android:layout_gravity="end"
