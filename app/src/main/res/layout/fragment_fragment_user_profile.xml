@@ -79,7 +79,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:textStyle="bold"
                 android:id="@+id/weight_id"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
@@ -89,7 +88,6 @@
                 android:paddingLeft="30dp"
                 android:text="Weight"/>
             <TextView
-                android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
@@ -99,7 +97,6 @@
                 android:paddingLeft="30dp"
                 android:text="Height"/>
             <TextView
-                android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
@@ -109,7 +106,6 @@
                 android:paddingLeft="30dp"
                 android:text="Age"/>
             <TextView
-                android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
@@ -119,7 +115,6 @@
                 android:paddingLeft="30dp"
                 android:text="Activity Level"/>
             <TextView
-                android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
