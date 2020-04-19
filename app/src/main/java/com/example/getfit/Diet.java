@@ -94,7 +94,10 @@ public class Diet extends AppCompatActivity {
                         return  true;
 
                     case  R.id.nav_menu_plans:
-                        if(((MyApplication)Diet.this.getApplication()).getDietPlanSelected() == "NoPlan")
+//                        Log.d("Diet.java",((MyApplication)Diet.this.getApplication()).getDietPlanSelected());
+                        Toast.makeText(Diet.this,"Plan Recieved"+ ((MyApplication)Diet.this.getApplication()).getDietPlanSelected(), Toast.LENGTH_SHORT).show();
+
+                        if(((MyApplication)Diet.this.getApplication()).getDietPlanSelected().equals("NoPlan"))
                         {
                             setFragment(fragmentDietPlan);
                         }
@@ -199,7 +202,7 @@ public class Diet extends AppCompatActivity {
                 }else{
                     PlanResult plan = response.body();
                     ((MyApplication)Diet.this.getApplication()).setDietPlanSelected(plan.getPlan());
-                    Toast.makeText(Diet.this,"Plan Recieved"+plan.getPlan(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Diet.this,"Plan Recieved"+plan.getPlan(), Toast.LENGTH_SHORT).show();
                 }
             }
 

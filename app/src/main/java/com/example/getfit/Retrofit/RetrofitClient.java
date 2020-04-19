@@ -9,7 +9,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit instance;
-    private static String BASE_URL = "http://192.168.1.106:3000"; //ip address of our machine
+    private static String BASE_URL = "http://192.168.43.46:3000"; //ip address of our machine
 
     public static Retrofit getInstance(){
         if(instance ==  null)
