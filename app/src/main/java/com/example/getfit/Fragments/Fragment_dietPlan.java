@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,20 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.getfit.DietPlanSelected;
 import com.example.getfit.R;
 import com.example.getfit.Fragments.dummy.DummyContent;
 import com.example.getfit.Fragments.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
+
 public class Fragment_dietPlan extends Fragment {
+
+    Button Continue;
+    private DietPlanSelected fragment_dietPlanSelected;
 
     // TODO: Customize parameter argument names
    // private static final String ARG_COLUMN_COUNT = "column-count";
@@ -62,7 +64,22 @@ public class Fragment_dietPlan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        Continue = view.findViewById(R.id.btn_continue);
+        fragment_dietPlanSelected =new DietPlanSelected();
 
+        //getSupportFragmentManager().beginTransaction().replace(R.id.mainframeLayout,fragmentHome).commit();
+
+        Continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.dietPlan, fragment_dietPlanSelected);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            }
+        });
        /* // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
