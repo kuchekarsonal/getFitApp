@@ -71,53 +71,76 @@
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp">
+        android:layout_gravity="center">
         <LinearLayout
             android:orientation="vertical"
             android:paddingLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <EditText
                 android:id="@+id/weight_id"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
+                android:ems="5"
+                android:hint="0.0"
+                android:inputType="none"
+                android:focusable="false"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/graylight"
                 android:paddingLeft="30dp"
                 android:text="Weight"/>
-            <TextView
+            <EditText
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
                 android:id="@+id/height_id"
+                android:ems="5"
+                android:inputType="none"
+                android:focusable="false"
+                android:hint="0.0"
+                android:textColorHint="@color/graylight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
                 android:text="Height"/>
-            <TextView
+            <EditText
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
                 android:id="@+id/age_id"
+                android:ems="5"
+                android:inputType="none"
+                android:focusable="false"
+                android:textColorHint="@color/graylight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
                 android:text="Age"/>
-            <TextView
+            <EditText
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
                 android:id="@+id/activity_id"
+                android:ems="5"
+                android:hint="moderate,high,low"
+                android:textColorHint="@color/graylight"
+                android:focusable="false"
+                android:inputType="none"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
                 android:text="Activity Level"/>
-            <TextView
+            <EditText
                 android:layout_gravity="center_vertical"
                 android:textSize="20dp"
                 android:layout_marginTop="2dp"
+                android:inputType="none"
+                android:focusable="false"
+                android:ems="5"
+                android:hint="0.0"
+                android:textColorHint="@color/graylight"
                 android:id="@+id/goal_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
