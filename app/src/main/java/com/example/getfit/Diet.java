@@ -22,9 +22,17 @@ import com.example.getfit.Fragments.Fragment_Home;
 import com.example.getfit.Fragments.Fragment_dietPlan;
 import com.example.getfit.Fragments.Fragment_userProfile;
 import com.example.getfit.Fragments.NewRegistrationDialog;
+import com.example.getfit.Retrofit.PlanResult;
+import com.example.getfit.Retrofit.RetrofitClient;
+import com.example.getfit.Retrofit.RetrofitInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.w3c.dom.Text;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class Diet extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -36,8 +44,14 @@ public class Diet extends AppCompatActivity {
     private Fragment_dietPlan fragmentDietPlan;
     private Fragment_Analysis fragmentAnalysis;
     private Fragment_userProfile fragmentUserProfile;
+    private  DietPlanSelected fragmentDietPlanSelected;
     private TextView caloriesTextView;
     private Button close;
+
+    //Retrofit
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +71,17 @@ public class Diet extends AppCompatActivity {
         fragmentAnalysis = new Fragment_Analysis();
         fragmentDietPlan =new Fragment_dietPlan();
         fragmentUserProfile = new Fragment_userProfile();
+        fragmentDietPlanSelected = new DietPlanSelected();
+
+        //Init Service
+        retrofit = RetrofitClient.getInstance();
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.mainframeLayout,fragmentHome).commit();
+
+        getPlan();
 
         checkNewRegistration();
 
@@ -71,7 +94,14 @@ public class Diet extends AppCompatActivity {
                         return  true;
 
                     case  R.id.nav_menu_plans:
-                        setFragment(fragmentDietPlan);
+                        if(((MyApplication)Diet.this.getApplication()).getDietPlanSelected() == "NoPlan")
+                        {
+                            setFragment(fragmentDietPlan);
+                        }
+                        else{
+                            setFragment(fragmentDietPlanSelected);
+                        }
+
                         return  true;
 
                     case R.id.nav_menu_analysis:
@@ -88,13 +118,44 @@ public class Diet extends AppCompatActivity {
                 }
             }
 
-            private void setFragment(Fragment fragment) {
+            public void setFragment(Fragment fragment) {
                 FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.mainframeLayout, fragment).commit();
             }
+
+
         });
     }
 
+
+    public void DietPlanSelected(String plan) {
+
+        //Send selectedDietPlan to Server - retrofitCall
+
+        ((MyApplication)this.getApplication()).setDietPlanSelected(plan);
+
+        PlanResult planResult = new PlanResult(plan);
+        Call<PlanResult> setPlanCall = retrofitInterface.setPlan(userEmail,planResult);
+        setPlanCall.enqueue(new Callback<PlanResult>() {
+            @Override
+            public void onResponse(Call<PlanResult> call, Response<PlanResult> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(Diet.this,"Some failure in setting Plan - Diet.java", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Diet.this,"Plan Added", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PlanResult> call, Throwable t) {
+                Toast.makeText(Diet.this,"In set Plan - Diet.java" +t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.mainframeLayout, fragmentDietPlanSelected).commit();
+    }
     private void checkNewRegistration(){
         if(getIntent().hasExtra("New Registration") && getIntent().hasExtra("Calories")) {
             if (getIntent().getExtras().getBoolean("New Registration")) {
@@ -127,5 +188,26 @@ public class Diet extends AppCompatActivity {
 
             }
         }
+    }
+    private void getPlan(){
+        final Call<PlanResult> getPlanCall = retrofitInterface.getPlan(userEmail);
+        getPlanCall.enqueue(new Callback<PlanResult>() {
+            @Override
+            public void onResponse(Call<PlanResult> call, Response<PlanResult> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(Diet.this,"Some failure in getting Plan - Diet.java", Toast.LENGTH_SHORT).show();
+                }else{
+                    PlanResult plan = response.body();
+                    ((MyApplication)Diet.this.getApplication()).setDietPlanSelected(plan.getPlan());
+                    Toast.makeText(Diet.this,"Plan Recieved"+plan.getPlan(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PlanResult> call, Throwable t) {
+                Toast.makeText(Diet.this,"In get Plan - Diet.java" +t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

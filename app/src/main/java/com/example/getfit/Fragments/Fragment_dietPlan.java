@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.getfit.Diet;
 import com.example.getfit.DietPlanSelected;
 import com.example.getfit.R;
 import com.example.getfit.Fragments.dummy.DummyContent;
@@ -72,11 +73,13 @@ public class Fragment_dietPlan extends Fragment {
         Continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.dietPlan, fragment_dietPlanSelected);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.dietPlan, fragment_dietPlanSelected);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+                String plan = "RegularPlan";
+                ((Diet)getActivity()).DietPlanSelected(plan);
 
             }
         });

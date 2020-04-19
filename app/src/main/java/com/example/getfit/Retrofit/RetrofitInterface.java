@@ -53,6 +53,12 @@ public interface RetrofitInterface {
     @GET("profile/{email}")
     Call<MeResult> getPosts(@Path("email") String email);
 
+    @GET("plan/getPlan/{email}")
+    Call<PlanResult> getPlan(@Path("email") String email);
+
+    @POST("plan/setPlan/{email}")
+    Call<PlanResult> setPlan(@Path("email") String email, @Body PlanResult result);
+
 }
 //    String email;
 //    private float height;

@@ -99,6 +99,8 @@ public class userProfile extends AppCompatActivity {
                 //Calculating BMI
                 BMI = weight_val/((height_val*0.01f)*(height_val*0.01f));
 
+                ((MyApplication)getApplication()).setDietPlanSelected("NoPlan");
+
                executeUserProfile(email,height_val,weight_val,activityLevel_val,gender_val,age_val,goalWeight_val,BMI,BMR,requiredCalCount);
 
             }
