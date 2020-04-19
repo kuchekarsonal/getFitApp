@@ -1,10 +1,17 @@
 package com.example.getfit.Fragments;
 
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +20,17 @@ import android.widget.TextView;
 
 import com.example.getfit.R;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+import static androidx.core.content.ContextCompat.getSystemServiceName;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Analysis extends Fragment {
     Button increment, decrement;
     TextView  countText;
-    static  int count =0;
-
+      int count=0;
+    //Context context;
 
     public Fragment_Analysis() {
         // Required empty public constructor
@@ -36,12 +46,23 @@ public class Fragment_Analysis extends Fragment {
         decrement = (Button)view.findViewById(R.id.decrement);
         countText = (TextView)view.findViewById(R.id.tvCount);
 
+       // context = getActivity();
+
         increment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count++;
+
+               // if(count >=5 )
+                //{
+                    notifyUser();
+
+                    Log.d(String.valueOf(count), "onClick: ");
+                //}
                 countText.setText(String.valueOf(count));
             }
+
+
         });
 
         decrement.setOnClickListener(new View.OnClickListener() {
@@ -54,5 +75,23 @@ public class Fragment_Analysis extends Fragment {
         return view;
 
     }
+    public void notifyUser() {
+        String message = "Good You drank" + count + "  " +  " amount of Water Today";
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                getActivity()
+        )
+                .setSmallIcon(R.drawable.message)
+                .setContentTitle("New Notification")
+                .setContentText(message)
+                .setAutoCancel(true);
 
+                /*Intent notificationIntent = new Intent(getActivity() , getActivity());
+                PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+                builder.setContentIntent(contentIntent);*/
+
+        NotificationManager notification = ( NotificationManager ) getActivity().getSystemService( getActivity().NOTIFICATION_SERVICE );
+        notification.notify(1,builder.build());
+
+    }
 }

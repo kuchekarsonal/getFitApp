@@ -234,8 +234,7 @@ public class Fragment_Home extends Fragment {
 
             @Override
             public void onFailure(Call<List<AddMealItem>> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
