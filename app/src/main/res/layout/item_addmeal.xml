@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/brawler"
         android:text="490kcal"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="40dp"
         android:layout_gravity="end"
         android:textColor="#000"
         android:textSize="18sp" />

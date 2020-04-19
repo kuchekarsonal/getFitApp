@@ -70,9 +70,9 @@ public class Diet extends AppCompatActivity {
                         setFragment(fragmentHome);
                         return  true;
 
-//                    case  R.id.nav_menu_plans:
-//                        setFragment(fragmentDietPlan);
-//                        return  true;
+                    case  R.id.nav_menu_plans:
+                        setFragment(fragmentDietPlan);
+                        return  true;
 
                     case R.id.nav_menu_analysis:
                         setFragment(fragmentAnalysis);

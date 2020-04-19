@@ -40,7 +40,7 @@ public class Fragment_Analysis extends Fragment {
             @Override
             public void onClick(View v) {
                 count++;
-                countText.setText(count);
+                countText.setText(String.valueOf(count));
             }
         });
 
@@ -48,7 +48,7 @@ public class Fragment_Analysis extends Fragment {
             @Override
             public void onClick(View v) {
                 count --;
-                countText.setText(count);
+                countText.setText(String.valueOf(count));
             }
         });
         return view;
