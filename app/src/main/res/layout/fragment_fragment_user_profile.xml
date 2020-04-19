@@ -37,6 +37,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/hello_id"
             android:layout_height="wrap_content"
             android:layout_below="@id/img_id"
             android:layout_marginRight="-200dp"
@@ -77,75 +78,131 @@
             android:paddingLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/weight_id"
-                android:textSize="20dp"
-                android:layout_marginTop="2dp"
-                android:ems="5"
-                android:hint="0.0"
-                android:inputType="none"
-                android:focusable="false"
-                android:layout_gravity="center_vertical"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/graylight"
-                android:paddingLeft="30dp"
-                android:text="Weight"/>
-            <EditText
-                android:layout_gravity="center_vertical"
-                android:textSize="20dp"
-                android:layout_marginTop="2dp"
-                android:id="@+id/height_id"
-                android:ems="5"
-                android:inputType="none"
-                android:focusable="false"
-                android:hint="0.0"
-                android:textColorHint="@color/graylight"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textFontWeight="5"
+                    android:text="Height : "
+                    android:layout_below="@id/weight_id"
+                    android:textColor="#010203"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/height_id"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:textSize="20dp"
+                    android:enabled="false"
+                    android:hint="0.0"
+                    android:textColorHint="@color/graylight"
+                    android:ems="10"
+                    android:cursorVisible="true" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:text="Height"/>
-            <EditText
-                android:layout_gravity="center_vertical"
-                android:textSize="20dp"
-                android:layout_marginTop="2dp"
-                android:id="@+id/age_id"
-                android:ems="5"
-                android:inputType="none"
-                android:focusable="false"
-                android:textColorHint="@color/graylight"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textFontWeight="5"
+                    android:text="Age : "
+                    android:layout_below="@id/height_id"
+                    android:textColor="#010203"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/age_id"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:hint="0"
+                    android:textColorHint="@color/graylight"
+                    android:ems="10"
+                    android:textSize="20dp"
+                    android:enabled="false"
+                    android:cursorVisible="true" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:text="Age"/>
-            <EditText
-                android:layout_gravity="center_vertical"
-                android:textSize="20dp"
-                android:layout_marginTop="2dp"
-                android:id="@+id/activity_id"
-                android:ems="5"
-                android:hint="moderate,high,low"
-                android:textColorHint="@color/graylight"
-                android:focusable="false"
-                android:inputType="none"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textFontWeight="5"
+                    android:text="Activity Level : "
+                    android:layout_below="@id/age_id"
+                    android:textColor="#010203"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/activity_id"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:hint="0.0"
+                    android:textColorHint="@color/graylight"
+                    android:ems="10"
+                    android:textSize="20dp"
+                    android:enabled="false"
+                    android:cursorVisible="true" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:text="Activity Level"/>
-            <EditText
-                android:layout_gravity="center_vertical"
-                android:textSize="20dp"
-                android:layout_marginTop="2dp"
-                android:inputType="none"
-                android:focusable="false"
-                android:ems="5"
-                android:hint="0.0"
-                android:textColorHint="@color/graylight"
-                android:id="@+id/goal_id"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textFontWeight="5"
+                    android:text="Goal weight : "
+                    android:layout_below="@id/activity_id"
+                    android:textColor="#010203"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/goal_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:textSize="20dp"
+                    android:hint="0.0"
+                    android:textColorHint="@color/graylight"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:cursorVisible="true" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:text="Goal Weight"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textFontWeight="5"
+                    android:text="Weight : "
+                    android:layout_below="@id/hello_id"
+                    android:textColor="#010203"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/weight_id"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:hint="0.0"
+                    android:textColorHint="@color/graylight"
+                    android:ems="10"
+                    android:textSize="20dp"
+                    android:enabled="false"
+                    android:cursorVisible="true" />
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
     <Button
@@ -157,6 +214,5 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="Update"/>
-
 
 </LinearLayout>

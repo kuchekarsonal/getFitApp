@@ -68,11 +68,11 @@ public class Fragment_userProfile extends Fragment {
                     MeResult p = response.body();
                     Log.d("Fragment User Profile",p.getName());
                     nameTextView.setText(p.getName());
-                    weightTextView.setText("Weight : " + p.getCurrentWeight());
-                    goalWeightTextView.setText("Goal Weight : " + p.getGoalWeight());
-                    heightTextView.setText("Height : " + p.getHeight());
-                    ageTextView.setText("Age : " + p.getAge());
-                    activityTextView.setText("Activity Level : " + p.getActivityLevel());
+                    weightTextView.setText( String.valueOf(p.getCurrentWeight()));
+                    goalWeightTextView.setText( String.valueOf(p.getGoalWeight()));
+                    heightTextView.setText(String.valueOf(p.getHeight()));
+                    ageTextView.setText(String.valueOf(p.getAge()));
+                    activityTextView.setText( String.valueOf(p.getActivityLevel()));
 
                 }
 
