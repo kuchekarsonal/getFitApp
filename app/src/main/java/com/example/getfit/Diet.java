@@ -95,9 +95,11 @@ public class Diet extends AppCompatActivity {
 
                     case  R.id.nav_menu_plans:
 //                        Log.d("Diet.java",((MyApplication)Diet.this.getApplication()).getDietPlanSelected());
-                        Toast.makeText(Diet.this,"Plan Recieved"+ ((MyApplication)Diet.this.getApplication()).getDietPlanSelected(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Diet.this,"Plan Received"+ ((MyApplication)Diet.this.getApplication()).getDietPlanSelected(), Toast.LENGTH_SHORT).show();
+                        String msg = ((MyApplication)Diet.this.getApplication()).getDietPlanSelected();
 
-                        if(((MyApplication)Diet.this.getApplication()).getDietPlanSelected().equals("NoPlan"))
+                        Log.d(msg, " Executed");
+                        if(msg.equals("NoPlan"))
                         {
                             setFragment(fragmentDietPlan);
                         }

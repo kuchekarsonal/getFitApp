@@ -1,6 +1,7 @@
 package com.example.getfit.Fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.getfit.Diet;
 import com.example.getfit.DietPlanSelected;
@@ -27,6 +29,7 @@ import java.util.List;
 public class Fragment_dietPlan extends Fragment {
 
     Button Continue;
+    LinearLayout llregular, llstrength, llweightgain, llweightloss;
     private DietPlanSelected fragment_dietPlanSelected;
 
     // TODO: Customize parameter argument names
@@ -66,9 +69,24 @@ public class Fragment_dietPlan extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
         Continue = view.findViewById(R.id.btn_continue);
+        llregular = view.findViewById(R.id.LLRegularplan);
+        llstrength = view.findViewById(R.id.LLStrengthplan);
+        llweightgain = view.findViewById(R.id.LLWeightgainplan);
+        llweightloss = view.findViewById(R.id.LLweightLossPlan);
+
         fragment_dietPlanSelected =new DietPlanSelected();
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.mainframeLayout,fragmentHome).commit();
+
+        llregular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llregular.setBackgroundColor(Color.parseColor("#FFB6C1"));
+
+                String plan = "RegularPlan";
+                ((Diet)getActivity()).DietPlanSelected(plan);
+            }
+        });
 
         Continue.setOnClickListener(new View.OnClickListener() {
             @Override

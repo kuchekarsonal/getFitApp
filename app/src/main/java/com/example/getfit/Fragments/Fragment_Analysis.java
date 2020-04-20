@@ -57,12 +57,12 @@ public class Fragment_Analysis extends Fragment {
             public void onClick(View v) {
                 count++;
 
-               // if(count >=5 )
-                //{
+                if(count >=5 )
+               {
                     notifyUser();
 
                     Log.d(String.valueOf(count), "onClick: ");
-                //}
+               }
                 countText.setText(String.valueOf(count));
             }
 
@@ -81,11 +81,11 @@ public class Fragment_Analysis extends Fragment {
     }
     public void notifyUser() {
 
-        String message = "Good You drank" + count + "  " +  " amount of Water Today";
+        String message = "Great Work!! You  drank  " + count +  "amount of Water Today";
         notificationManager = NotificationManagerCompat.from(getActivity());
         Notification notification = new NotificationCompat.Builder(getActivity(), MyApplication.Channel_1_ID)
                 .setSmallIcon(R.drawable.message)
-                .setContentTitle("New Notification")
+                .setContentTitle("Stay Healthy and Hydrated")
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)

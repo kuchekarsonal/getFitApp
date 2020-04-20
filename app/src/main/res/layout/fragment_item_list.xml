@@ -27,6 +27,7 @@
 
         android:text="Your Diet Plan" />
     <LinearLayout
+        android:id="@+id/LLRegularplan"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
@@ -65,6 +66,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LLStrengthplan"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
@@ -103,6 +105,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LLWeightgainplan"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
@@ -140,6 +143,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LLweightLossPlan"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal"
