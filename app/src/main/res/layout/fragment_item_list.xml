@@ -148,7 +148,8 @@
         android:layout_height="80dp"
         android:orientation="horizontal"
         android:layout_marginRight="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginLeft
+            ="32dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bghome"
 
@@ -181,7 +182,7 @@
 
 
     </LinearLayout>
-    <Button
+  <!--  <Button
         android:id="@+id/btn_continue"
         android:layout_marginRight="18dp"
         android:layout_marginLeft="18dp"
@@ -197,5 +198,5 @@
          android:background="@drawable/btn_cancel"
          android:layout_marginRight="32dp"
          android:layout_marginLeft="32dp"/>
-
+-->
 </LinearLayout>

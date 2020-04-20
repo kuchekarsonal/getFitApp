@@ -28,7 +28,7 @@ import java.util.List;
 
 public class Fragment_dietPlan extends Fragment {
 
-    Button Continue;
+   // Button Continue;
     LinearLayout llregular, llstrength, llweightgain, llweightloss;
     private DietPlanSelected fragment_dietPlanSelected;
 
@@ -68,7 +68,7 @@ public class Fragment_dietPlan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
-        Continue = view.findViewById(R.id.btn_continue);
+       // Continue = view.findViewById(R.id.btn_continue);
         llregular = view.findViewById(R.id.LLRegularplan);
         llstrength = view.findViewById(R.id.LLStrengthplan);
         llweightgain = view.findViewById(R.id.LLWeightgainplan);
@@ -87,20 +87,47 @@ public class Fragment_dietPlan extends Fragment {
                 ((Diet)getActivity()).DietPlanSelected(plan);
             }
         });
-
-        Continue.setOnClickListener(new View.OnClickListener() {
+        llstrength.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                llstrength.setBackgroundColor(Color.parseColor("#FDD835"));
+
+                String plan = "StrengthPlan";
+                ((Diet)getActivity()).DietPlanSelected(plan);
+            }
+        });
+        llweightgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llweightgain.setBackgroundColor(Color.parseColor("#1DE9B6"));
+
+                String plan = "WeightGainPlan";
+                ((Diet)getActivity()).DietPlanSelected(plan);
+            }
+        });
+        llweightloss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llweightloss.setBackgroundColor(Color.parseColor("#FFA726"));
+
+                String plan = "WeightLossPlan";
+                ((Diet)getActivity()).DietPlanSelected(plan);
+            }
+        });
+
+      //  Continue.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+          //  public void onClick(View v) {
 //                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //                fragmentTransaction.replace(R.id.dietPlan, fragment_dietPlanSelected);
 //                fragmentTransaction.addToBackStack(null);
 //                fragmentTransaction.commit();
-                String plan = "RegularPlan";
-                ((Diet)getActivity()).DietPlanSelected(plan);
+            //    String plan = "RegularPlan";
+               // ((Diet)getActivity()).DietPlanSelected(plan);
 
-            }
-        });
+            //}
+        //});
        /* // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
