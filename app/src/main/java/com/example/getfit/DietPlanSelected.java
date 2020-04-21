@@ -34,7 +34,7 @@ public class DietPlanSelected extends Fragment {
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
-    String email = ((MyApplication)getActivity().getApplication()).getUserEmail();
+    String email;
 
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
@@ -50,6 +50,8 @@ public class DietPlanSelected extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }*/
+
+       email = ((Diet)getActivity()).userEmail;
 
 
         ///Init Service
@@ -74,6 +76,7 @@ public class DietPlanSelected extends Fragment {
                 }
                 else {
                     dietPlanModel = response.body();
+                    Toast.makeText(getActivity(),String.valueOf(dietPlanModel.getTotalMeal().getCalories()), Toast.LENGTH_SHORT).show();
                     Log.d("Fetched Total Calories",String.valueOf(dietPlanModel.getTotalMeal().getCalories()));
                 }
             }
