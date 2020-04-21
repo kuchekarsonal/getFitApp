@@ -18,9 +18,10 @@
         android:layout_height="match_parent">
     </androidx.viewpager.widget.ViewPager>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnOrder"
-        android:text="Order Now!"
+        android:text="Add This Meal"
+        android:textAllCaps="false"
         android:textColor="#fff"
         android:background="@drawable/round"
         android:paddingLeft="30dp"

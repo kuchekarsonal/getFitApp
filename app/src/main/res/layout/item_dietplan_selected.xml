@@ -11,11 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
+        android:background="#A4FFFFFF"
         android:layout_margin="8dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/image"
@@ -28,47 +29,354 @@
                 android:id="@+id/title"
                 android:textColor="#262626"
                 android:layout_below="@id/image"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="16dp"
                 android:text="Breakfast"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/meal1"
-                android:layout_below="@id/title"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:maxLines="3"
-                android:drawablePadding="10dp"
-                android:ellipsize="end"
-                android:text="Description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/meal2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                android:layout_marginTop="27dp"
-                android:text="Hello World" />
-            <TextView
-                android:id="@+id/meal3"
-                android:layout_width="match_parent"
+                android:layout_below="@+id/title"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/meal2"
-                android:layout_marginTop="5dp"
-                android:text="Hello World fine" />
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="Quick Whole Wheat Chapati"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:drawableLeft="@drawable/calorie_count"
+                        android:drawablePadding="8dp"
+
+                        android:layout_marginRight="2dp"
+                        android:text="calorie count"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dp"
+                        android:text="254"/>
+
+
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:drawableLeft="@drawable/serve"
+                        android:layout_marginLeft="20dp"
+                        android:drawablePadding="8dp"
+                        android:text="Serves "
+                        android:layout_marginRight="5dp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"/>
+                </LinearLayout>
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="Aloo Matar"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:drawableLeft="@drawable/calorie_count"
+                        android:drawablePadding="8dp"
+
+                        android:layout_marginRight="2dp"
+                        android:text="calorie count"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dp"
+                        android:text="254"/>
+
+
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:drawableLeft="@drawable/serve"
+                        android:layout_marginLeft="20dp"
+                        android:drawablePadding="8dp"
+                        android:text="Serves "
+                        android:layout_marginRight="5dp"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+            <!--   added in viewpager adapter
+                   <TextView
+                   android:id="@+id/meal1"
+                   android:layout_below="@id/title"
+                   android:layout_marginTop="3dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginRight="16dp"
+                   android:maxLines="3"
+                   android:drawablePadding="10dp"
+                   android:ellipsize="end"
+                   android:text="Description"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+               <TextView
+                   android:id="@+id/meal2"
+                   android:layout_width="match_parent"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginRight="16dp"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@id/title"
+                   android:layout_marginTop="27dp"
+                   android:text="Hello World" />
+               <TextView
+                   android:id="@+id/meal3"
+                   android:layout_width="match_parent"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginRight="16dp"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@id/meal2"
+                   android:layout_marginTop="5dp"
+                   android:text="Hello World fine" />-->
         </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+    <com.google.android.material.textview.MaterialTextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="#000"
+        android:layout_margin="2dp"
+        android:text="Total Calorie Intake "/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="0.25"
+        android:layout_margin="5dp"
+        android:text="1623%" />
+
+
+    </LinearLayout>
+    <com.google.android.material.textview.MaterialTextView
+       android:id="@+id/tvNutrients"
+       android:layout_marginLeft="16dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textColor="#000"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+       android:text="Nutrients"/>
+    <LinearLayout
+        android:layout_marginLeft="16dp"
+        android:weightSum="3"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F3000000"
+            android:text="Proteins"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="43.2g"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#F3000000"
+                android:text="Carbs"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="277.7 g"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#F3000000"
+                android:text="Fat"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="44.3"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvNutrientsPercentage"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="Nutrients Percentages"/>
+
+    <LinearLayout
+        android:layout_marginLeft="16dp"
+        android:weightSum="3"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#F3000000"
+                android:text="Protein Percent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24.0 %"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#F3000000"
+                android:text="Carb Percent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70.0 %"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#F3000000"
+                android:text="Fat Percent"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="44.3"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+  <!--  "total": {
+    "Calories": 1623.0,
+    "Carbohydrates": 277.7,
+    "Carbs percentage": 70.0,
+    "Proteins": 43.2,
+    "Proteins percent": 11.0,
+    "Fats": 44.3,
+    "Fats percent": 24.0
+    }-->
