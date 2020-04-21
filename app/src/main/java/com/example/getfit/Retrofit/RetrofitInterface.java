@@ -1,6 +1,7 @@
 package com.example.getfit.Retrofit;
 
 import com.example.getfit.AddMealItem;
+import com.example.getfit.ModelClasses.DietPlanModel;
 
 import java.util.HashMap;
 import java.util.List;
@@ -58,6 +59,10 @@ public interface RetrofitInterface {
 
     @POST("plan/setPlan/{email}")
     Call<PlanResult> setPlan(@Path("email") String email, @Body PlanResult result);
+
+    @GET("/nodeFlask/{email}")
+    Call<DietPlanModel> getRecommendation(@Path("email") String email);
+
 
 }
 //    String email;

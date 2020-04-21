@@ -192,7 +192,7 @@
 
 
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -301,7 +301,7 @@
         android:layout_height="wrap_content"
         android:textColor="#000"
         android:text="Nutrients Percentages"/>
-
+-->
     <LinearLayout
         android:layout_marginLeft="16dp"
         android:weightSum="3"

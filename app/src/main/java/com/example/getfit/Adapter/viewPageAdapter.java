@@ -7,8 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.getfit.AddMealItem;
-import com.example.getfit.Model;
+import com.example.getfit.ModelClasses.Model;
 import com.example.getfit.R;
 
 import java.util.List;
@@ -50,15 +49,15 @@ public class viewPageAdapter extends PagerAdapter {
 
         imageView = (ImageView)view.findViewById(R.id.image);
         title = view.findViewById(R.id.title);
-        foodItem1 = view.findViewById(R.id.meal1);
+       /* foodItem1 = view.findViewById(R.id.meal1);
         foodItem2= view.findViewById(R.id.meal2);
-        foodItem3 = view.findViewById(R.id.meal3);
+        foodItem3 = view.findViewById(R.id.meal3);*/
 
         imageView.setImageResource(foodIteams.get(position).getImage());
         title.setText(foodIteams.get(position).getTitle());
-        foodItem2.setText(foodIteams.get(position).getFoodItem1());
+        /*foodItem2.setText(foodIteams.get(position).getFoodItem1());
         foodItem2.setText(foodIteams.get(position).getFooodItem2());
-        foodItem3.setText(foodIteams.get(position).getFoodItem3());
+        foodItem3.setText(foodIteams.get(position).getFoodItem3());*/
 
         container.addView(view);
         return view;

@@ -5,26 +5,39 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
+import android.widget.Toast;
 
-import com.example.getfit.Adapter.MealAdapter;
 import com.example.getfit.Adapter.viewPageAdapter;
+import com.example.getfit.ModelClasses.DietPlanModel;
+import com.example.getfit.ModelClasses.Model;
+import com.example.getfit.Retrofit.RetrofitClient;
+import com.example.getfit.Retrofit.RetrofitInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class DietPlanSelected extends Fragment {
-
+    DietPlanModel dietPlanModel;
     ViewPager viewPager;
     viewPageAdapter adapter;
     List<Model> models;
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+
+    String email = ((MyApplication)getActivity().getApplication()).getUserEmail();
+
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
     public DietPlanSelected() {
         // Required empty public constructor
     }
@@ -39,7 +52,9 @@ public class DietPlanSelected extends Fragment {
         }*/
 
 
-
+        ///Init Service
+        retrofit = RetrofitClient.getInstance();
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
 
     }
 
@@ -49,6 +64,27 @@ public class DietPlanSelected extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_diet_plan_selected, container, false);
         models = new ArrayList<>();
+        //Retrofit Call
+        Call<DietPlanModel> callDietPlan = retrofitInterface.getRecommendation(email);
+        callDietPlan.enqueue(new Callback<DietPlanModel>() {
+            @Override
+            public void onResponse(Call<DietPlanModel> call, Response<DietPlanModel> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getActivity(),"Some failure in getting meal - DietPlanSelected", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    dietPlanModel = response.body();
+                    Log.d("Fetched Total Calories",String.valueOf(dietPlanModel.getTotalMeal().getCalories()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DietPlanModel> call, Throwable t) {
+                Toast.makeText(getActivity(),"In getting meal error - DietPlanSelected" +t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
         models.add(new Model(R.drawable.breakfast, "Breakfast","Butter Chicken","Chai","ButterMilk"));
         models.add(new Model(R.drawable.lunch, "Lunch","Butter Chicken","Chai","ButterMilk"));
         models.add(new Model(R.drawable.dinner, "Dinner","Butter Chicken","Chai","ButterMilk"));

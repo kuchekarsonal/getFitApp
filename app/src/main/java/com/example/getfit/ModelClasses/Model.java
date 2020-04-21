@@ -1,4 +1,4 @@
-package com.example.getfit;
+package com.example.getfit.ModelClasses;
 
 public class Model {
     private int image;
