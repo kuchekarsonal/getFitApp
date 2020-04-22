@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface RetrofitInterface {
@@ -62,6 +63,9 @@ public interface RetrofitInterface {
 
     @GET("/nodeFlask/{email}")
     Call<DietPlanModel> getRecommendation(@Path("email") String email);
+
+    @PUT("/profile/{email}")
+    Call<Void> getUpdatedProfile(@Path("email") String email, @Body MeResult Result);
 
 
 }

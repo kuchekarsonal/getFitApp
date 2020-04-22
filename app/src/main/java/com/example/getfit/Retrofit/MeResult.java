@@ -7,6 +7,15 @@ public class MeResult {
     private float current_weight;
     private float goal_weight;
     private float height;
+    public MeResult(String name, int age, String activity_level, float current_weight, float goal_weight, float height){
+        this.name = name;
+        this.age = age;
+        this.activity_level = activity_level;
+        this.current_weight = current_weight;
+        this.goal_weight = goal_weight;
+        this.height = height;
+
+    }
 
     public String getName() {
         return name;

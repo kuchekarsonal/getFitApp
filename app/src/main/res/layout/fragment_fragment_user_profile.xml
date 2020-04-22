@@ -15,7 +15,7 @@
             android:id="@+id/img_id"
             android:src="@drawable/profile"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="250dp"
             android:orientation="vertical">
 
 
@@ -207,6 +207,7 @@
     </LinearLayout>
     <Button
         android:textColor="#fff"
+        android:id="@+id/button_id"
         android:background="@drawable/buttonstylegradient"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
