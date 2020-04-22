@@ -97,7 +97,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:textSize="20dp"
-                    android:enabled="false"
                     android:hint="0.0"
                     android:textColorHint="@color/graylight"
                     android:ems="10"
@@ -125,7 +124,7 @@
                     android:textColorHint="@color/graylight"
                     android:ems="10"
                     android:textSize="20dp"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:cursorVisible="true" />
             </LinearLayout>
             <LinearLayout
@@ -150,7 +149,6 @@
                     android:textColorHint="@color/graylight"
                     android:ems="10"
                     android:textSize="20dp"
-                    android:enabled="false"
                     android:cursorVisible="true" />
             </LinearLayout>
             <LinearLayout
@@ -174,7 +172,6 @@
                     android:hint="0.0"
                     android:textColorHint="@color/graylight"
                     android:ems="10"
-                    android:enabled="false"
                     android:cursorVisible="true" />
             </LinearLayout>
             <LinearLayout
@@ -199,7 +196,6 @@
                     android:textColorHint="@color/graylight"
                     android:ems="10"
                     android:textSize="20dp"
-                    android:enabled="false"
                     android:cursorVisible="true" />
             </LinearLayout>
 

@@ -29,7 +29,7 @@ import retrofit2.Retrofit;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_userProfile extends Fragment {
-    private EditText nameEditText;
+    private TextView nameTextView;
     private EditText weightEditText;
     private  EditText heightEditText;
     private  EditText activityEditText;
@@ -48,7 +48,7 @@ public class Fragment_userProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_fragment_user_profile, container, false);
-        nameEditText = view.findViewById(R.id.name_id);
+        nameTextView = view.findViewById(R.id.name_id);
         weightEditText = view.findViewById(R.id.weight_id);
         heightEditText = view.findViewById(R.id.height_id);
         activityEditText = view.findViewById(R.id.activity_id);
@@ -73,7 +73,7 @@ public class Fragment_userProfile extends Fragment {
                 else{
                     MeResult p = response.body();
                     Log.d("Fragment User Profile",p.getName());
-                    nameEditText.setText(p.getName());
+                    nameTextView.setText(p.getName());
                     weightEditText.setText( String.valueOf(p.getCurrentWeight()));
                     goalWeightEditText.setText( String.valueOf(p.getGoalWeight()));
                     heightEditText.setText(String.valueOf(p.getHeight()));
@@ -96,7 +96,7 @@ public class Fragment_userProfile extends Fragment {
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = nameEditText.getText().toString();
+                String name = nameTextView.getText().toString();
                 float weight = Float.valueOf(weightEditText.getText().toString());
                 float goalWeight = Float.valueOf(goalWeightEditText.getText().toString());
                 float height = Float.valueOf(heightEditText.getText().toString());
