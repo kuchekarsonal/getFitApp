@@ -33,6 +33,7 @@ public class DietPlanSelected extends Fragment {
     List<Model> models;
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    List<DietPlanModel.Meal> BreakfastItems, BreakfastItems2;
 
     String email;
 
@@ -88,9 +89,21 @@ public class DietPlanSelected extends Fragment {
             }
         });
 
-        models.add(new Model(R.drawable.breakfast, "Breakfast","Butter Chicken","Chai","ButterMilk"));
-        models.add(new Model(R.drawable.lunch, "Lunch","Butter Chicken","Chai","ButterMilk"));
-        models.add(new Model(R.drawable.dinner, "Dinner","Butter Chicken","Chai","ButterMilk"));
+
+        String b1Receipe = BreakfastItems.get(0).getRecipe_name();
+        float b1caloriecount = BreakfastItems.get(1).getCalories();
+        float b1serving = BreakfastItems.get(2).getServings();
+
+        String b2Receipe = BreakfastItems2.get(0).getRecipe_name();
+        float b2caloriecount = BreakfastItems2.get(1).getCalories();
+        float b2serving = BreakfastItems2.get(2).getServings();
+
+
+
+        models.add(new Model(R.drawable.breakfast, "Breakfast",b1Receipe,b1caloriecount,b1serving,b2Receipe,b2caloriecount,b2serving));
+
+      //  models.add(new Model(R.drawable.lunch, "Lunch","Butter Chicken","Chai","ButterMilk"));
+        //models.add(new Model(R.drawable.dinner, "Dinner","Butter Chicken","Chai","ButterMilk"));
         adapter = new viewPageAdapter(models, getActivity());
 
         viewPager = view.findViewById(R.id.viewPager);

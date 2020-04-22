@@ -23,7 +23,7 @@
                 android:src="@drawable/breakfast"
                 android:scaleType="centerCrop"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="150dp" />
 
             <TextView
                 android:id="@+id/title"
@@ -48,6 +48,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/titlemealViewpager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000"
@@ -65,12 +66,13 @@
                         android:drawablePadding="8dp"
 
                         android:layout_marginRight="2dp"
-                        android:text="calorie count"
+                        android:text="calorie count :"
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvCalorieCountViewpager"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="40dp"
@@ -81,7 +83,7 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:drawableLeft="@drawable/serve"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:drawablePadding="8dp"
                         android:text="Serves "
                         android:layout_marginRight="5dp"
@@ -90,6 +92,7 @@
                         android:layout_height="wrap_content"/>
 
                     <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvServesViewpager"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2"/>
@@ -98,6 +101,7 @@
 
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/titleMeal2Viewpager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000"
@@ -115,31 +119,31 @@
                         android:drawablePadding="8dp"
 
                         android:layout_marginRight="2dp"
-                        android:text="calorie count"
+                        android:text="calorie count :"
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvCalorieCountViewpager2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="40dp"
                         android:text="254"/>
 
 
-
-
                     <com.google.android.material.textview.MaterialTextView
-                        android:drawableLeft="@drawable/serve"
-                        android:layout_marginLeft="20dp"
-                        android:drawablePadding="8dp"
-                        android:text="Serves "
-                        android:layout_marginRight="5dp"
-
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:drawableLeft="@drawable/serve"
+
+                        android:drawablePadding="8dp"
+                        android:text="Serves " />
 
                     <com.google.android.material.textview.MaterialTextView
+                       android:id="@+id/tvServesViewpager2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2"/>
@@ -310,7 +314,7 @@
         android:layout_height="wrap_content">
 
 
-        <LinearLayout
+       <!-- <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -323,6 +327,7 @@
                 android:text="Protein Percent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvProteinPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="24.0 %"/>
@@ -341,6 +346,7 @@
                 android:text="Carb Percent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCarbPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="70.0 %"/>
@@ -359,10 +365,12 @@
                 android:text="Fat Percent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFatPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="44.3"/>
-        </LinearLayout>
+        </LinearLayout>-->
+
     </LinearLayout>
 
 

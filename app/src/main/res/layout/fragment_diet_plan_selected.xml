@@ -97,6 +97,7 @@
                 android:textColor="#F3000000"
                 android:text="Proteins"/>
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvProtein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="43.2g"/>
@@ -117,7 +118,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:id="@+id/tvCarbs"
                 android:text="277.7 g"/>
 
         </LinearLayout>
@@ -134,6 +135,7 @@
                 android:textColor="#F3000000"
                 android:text="Fat"/>
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvFat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="44.3"/>
@@ -173,6 +175,7 @@
                 android:text="Protein Percent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTotalProteinPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="24.0 %"/>
@@ -191,6 +194,7 @@
                 android:text="Carb Percent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTotalCarbsPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="70.0 %"/>
@@ -209,6 +213,7 @@
                 android:text="Fat Percent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTotalFatPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="44.3"/>
@@ -224,8 +229,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="17dp"
         android:background="@drawable/round"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
