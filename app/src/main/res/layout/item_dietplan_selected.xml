@@ -117,7 +117,7 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:drawableLeft="@drawable/calorie_count"
                         android:drawablePadding="8dp"
-
+                        android:id="@+id/fooditem2_calories"
                         android:layout_marginRight="2dp"
                         android:text="calorie count :"
 
@@ -138,7 +138,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="5dp"
                         android:drawableLeft="@drawable/serve"
-
+                        android:id="@+id/fooditem2_serves"
                         android:drawablePadding="8dp"
                         android:text="Serves " />
 

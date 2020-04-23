@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.getfit.Adapter.viewPageAdapter;
@@ -33,8 +34,9 @@ public class DietPlanSelected extends Fragment {
     List<Model> models;
     Integer[] colors = null;
     ArgbEvaluator argbEvaluator = new ArgbEvaluator();
-    List<DietPlanModel.Meal> BreakfastItems, BreakfastItems2;
-
+    List<DietPlanModel.Meal> BreakfastItems,LunchItems,DinnerItems;
+    DietPlanModel.totalMeal total;
+    TextView TotalCals,TotalProtein,TotalFat,TotalCarbs,TotalProteinPercent,TotalFatPercent,TotalCarbsPercent;
     String email;
 
     private Retrofit retrofit;
@@ -52,7 +54,10 @@ public class DietPlanSelected extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }*/
 
-       email = ((Diet)getActivity()).userEmail;
+
+
+
+        email = ((Diet)getActivity()).userEmail;
 
 
         ///Init Service
@@ -66,7 +71,25 @@ public class DietPlanSelected extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_diet_plan_selected, container, false);
+
+        //Intialise
+        viewPager = view.findViewById(R.id.viewPager);
+        TotalCals = view.findViewById(R.id.tvTotalCount);
+        TotalCarbs = view.findViewById(R.id.tvCarbs);
+        TotalFat = view.findViewById(R.id.tvFat);
+        TotalProtein = view.findViewById(R.id.tvProtein);
+        TotalCarbsPercent = view.findViewById(R.id.tvTotalCarbsPercent);
+        TotalProteinPercent = view.findViewById(R.id.tvTotalProteinPercent);
+        TotalFatPercent = view.findViewById(R.id.tvTotalFatPercent);
+
         models = new ArrayList<>();
+
+        getDietPlan();
+
+        return view;
+    }
+
+    public void getDietPlan(){
         //Retrofit Call
         Call<DietPlanModel> callDietPlan = retrofitInterface.getRecommendation(email);
         callDietPlan.enqueue(new Callback<DietPlanModel>() {
@@ -79,6 +102,12 @@ public class DietPlanSelected extends Fragment {
                     dietPlanModel = response.body();
                     Toast.makeText(getActivity(),String.valueOf(dietPlanModel.getTotalMeal().getCalories()), Toast.LENGTH_SHORT).show();
                     Log.d("Fetched Total Calories",String.valueOf(dietPlanModel.getTotalMeal().getCalories()));
+                    BreakfastItems = dietPlanModel.getMealBreakfast();
+                    LunchItems = dietPlanModel.getMealLunch();
+                    DinnerItems = dietPlanModel.getMealDinner();
+                    setViewPager();
+                    setTotal();
+
                 }
             }
 
@@ -88,25 +117,42 @@ public class DietPlanSelected extends Fragment {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
 
+    public void setViewPager(){
         String b1Receipe = BreakfastItems.get(0).getRecipe_name();
-        float b1caloriecount = BreakfastItems.get(1).getCalories();
-        float b1serving = BreakfastItems.get(2).getServings();
+        float b1caloriecount = BreakfastItems.get(0).getCalories();
+        float b1serving = BreakfastItems.get(0).getServings();
 
-        String b2Receipe = BreakfastItems2.get(0).getRecipe_name();
-        float b2caloriecount = BreakfastItems2.get(1).getCalories();
-        float b2serving = BreakfastItems2.get(2).getServings();
+        //        String b2Receipe = BreakfastItems2.get(0).getRecipe_name();
+        //        float b2caloriecount = BreakfastItems2.get(1).getCalories();
+        //        float b2serving = BreakfastItems2.get(2).getServings();
 
+        String l1Recipe = LunchItems.get(0).getRecipe_name();
+        float l1caloriecount = LunchItems.get(0).getCalories();
+        float l1serving = LunchItems.get(0).getServings();
 
+        String l2Recipe = LunchItems.get(1).getRecipe_name();
+        float l2caloriecount = LunchItems.get(1).getCalories();
+        float l2serving = LunchItems.get(1).getServings();
 
-        models.add(new Model(R.drawable.breakfast, "Breakfast",b1Receipe,b1caloriecount,b1serving,b2Receipe,b2caloriecount,b2serving));
+        String d1Recipe = DinnerItems.get(0).getRecipe_name();
+        float d1caloriecount = DinnerItems.get(0).getCalories();
+        float d1serving = DinnerItems.get(0).getServings();
 
-      //  models.add(new Model(R.drawable.lunch, "Lunch","Butter Chicken","Chai","ButterMilk"));
-        //models.add(new Model(R.drawable.dinner, "Dinner","Butter Chicken","Chai","ButterMilk"));
+        String d2Recipe = DinnerItems.get(1).getRecipe_name();
+        float d2caloriecount = DinnerItems.get(1).getCalories();
+        float d2serving = DinnerItems.get(1).getServings();
+
+        models.add(new Model(R.drawable.breakfast, "Breakfast",b1Receipe,b1caloriecount,b1serving,"",0,0));
+        models.add(new Model(R.drawable.lunch, "Lunch",l1Recipe,l1caloriecount,l1serving,l2Recipe,l2caloriecount,l2serving));
+        models.add(new Model(R.drawable.dinner, "Dinner",d1Recipe,d1caloriecount,d1serving,d2Recipe,d2caloriecount,d2serving));
+//        models.add(new Model(R.drawable.lunch, "Lunch","Butter Chicken",100,1,"",0,0));
+//        models.add(new Model(R.drawable.dinner, "Dinner","Butter Chicken",200,1,"",0,0));
         adapter = new viewPageAdapter(models, getActivity());
 
-        viewPager = view.findViewById(R.id.viewPager);
+
         viewPager.setAdapter(adapter);
         viewPager.setPadding(130, 0, 130, 0);
 
@@ -147,6 +193,16 @@ public class DietPlanSelected extends Fragment {
 
             }
         });
-        return view;
+    }
+
+    public void setTotal(){
+        total = dietPlanModel.getTotalMeal();
+        TotalCals.setText(total.getCalories()+"kcal");
+        TotalFat.setText(total.getFats()+"g");
+        TotalProtein.setText(total.getProteins()+"g");
+        TotalCarbs.setText(total.getCarbohydrates()+"g");
+        TotalFatPercent.setText(total.getFats_percent()+"%");
+        TotalProteinPercent.setText(total.getProteins_percent()+"%");
+        TotalCarbsPercent.setText(total.getCarbspercentage()+"%");
     }
 }

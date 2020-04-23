@@ -52,7 +52,10 @@ public class viewPageAdapter extends PagerAdapter {
 
         TextView foodItem2;
         TextView foodItem2_calorie;
-        TextView fooditem2_serves;
+        TextView foodItem2_serves;
+
+        TextView foodItem2_calorie_image;
+        TextView foodItem2_serves_image;
 
         TextView protein, carb, fat;
 
@@ -66,11 +69,13 @@ public class viewPageAdapter extends PagerAdapter {
 
         foodItem2 = view.findViewById(R.id.titleMeal2Viewpager);
         foodItem2_calorie = view.findViewById(R.id.tvCalorieCountViewpager2);
-        fooditem2_serves = view.findViewById(R.id.tvServesViewpager2);
+        foodItem2_serves = view.findViewById(R.id.tvServesViewpager2);
 
-        protein = view.findViewById(R.id.tvProteinPercent);
-        carb = view.findViewById(R.id.tvCarbPercent);
-        fat = view.findViewById(R.id.tvFatPercent);
+        foodItem2_calorie_image = view.findViewById(R.id.fooditem2_calories);
+        foodItem2_serves_image = view.findViewById(R.id.fooditem2_serves);
+//        protein = view.findViewById(R.id.tvProteinPercent);
+//        carb = view.findViewById(R.id.tvCarbPercent);
+//        fat = view.findViewById(R.id.tvFatPercent);
 
 
         imageView.setImageResource(foodItems.get(position).getImage());
@@ -81,14 +86,22 @@ public class viewPageAdapter extends PagerAdapter {
         foodItem1_serves.setText(String.valueOf(foodItems.get(position).getFoodItem1_serves()));
 
 
+        if(foodItems.get(position).getFoodItem2().equals("")){
+            foodItem2.setVisibility(View.INVISIBLE);
+            foodItem2_calorie.setVisibility(View.INVISIBLE);
+            foodItem2_serves.setVisibility(View.INVISIBLE);
+            foodItem2_calorie_image.setVisibility(View.INVISIBLE);
+            foodItem2_serves_image.setVisibility(View.INVISIBLE);
+        }
+        else {
+            foodItem2.setText(foodItems.get(position).getFoodItem2());
+            foodItem2_calorie.setText(String.valueOf(foodItems.get(position).getFoodItem2_calorieCount()));
+            foodItem2_serves.setText(String.valueOf(foodItems.get(position).getFoodItem2_serves()));
+        }
 
-        foodItem2.setText(foodItems.get(position).getFoodItem2());
-        foodItem2_calorie.setText(String.valueOf(foodItems.get(position).getFoodItem2_calorieCount()));
-        foodItem1_serves.setText(String.valueOf(foodItems.get(position).getFoodItem2_serves()));
-
-        protein.setText(String.valueOf(foodItems.get(position).getProtein_percent()));
-        carb.setText(String.valueOf(foodItems.get(position).getCarb_percent()));
-        fat.setText(String.valueOf(foodItems.get(position).getFat_percent()));
+//        protein.setText(String.valueOf(foodItems.get(position).getProtein_percent()));
+//        carb.setText(String.valueOf(foodItems.get(position).getCarb_percent()));
+//        fat.setText(String.valueOf(foodItems.get(position).getFat_percent()));
 
         container.addView(view);
         return view;
