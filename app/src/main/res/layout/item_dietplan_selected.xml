@@ -75,7 +75,7 @@
                         android:id="@+id/tvCalorieCountViewpager"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginRight="30dp"
                         android:text="254"/>
 
 
@@ -85,7 +85,7 @@
                         android:drawableLeft="@drawable/serve"
                         android:layout_marginLeft="10dp"
                         android:drawablePadding="8dp"
-                        android:text="Serves "
+                        android:text="Servings "
                         android:layout_marginRight="5dp"
 
                         android:layout_width="wrap_content"
@@ -128,7 +128,7 @@
                         android:id="@+id/tvCalorieCountViewpager2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginRight="30dp"
                         android:text="254"/>
 
 
@@ -140,7 +140,7 @@
                         android:drawableLeft="@drawable/serve"
                         android:id="@+id/fooditem2_serves"
                         android:drawablePadding="8dp"
-                        android:text="Serves " />
+                        android:text="Servings " />
 
                     <com.google.android.material.textview.MaterialTextView
                        android:id="@+id/tvServesViewpager2"
