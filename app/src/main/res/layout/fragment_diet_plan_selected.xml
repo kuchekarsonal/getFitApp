@@ -28,7 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="360dp"
         android:layout_marginTop="15dp"
-
         android:clipToPadding="false"
         android:foregroundGravity="center"
         android:overScrollMode="never"></androidx.viewpager.widget.ViewPager>
