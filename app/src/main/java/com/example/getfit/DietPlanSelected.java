@@ -154,7 +154,7 @@ public class DietPlanSelected extends Fragment {
 
 
         viewPager.setAdapter(adapter);
-        viewPager.setPadding(100, 0, 100, 0);
+        viewPager.setPadding(100, 10, 100, 0);
 
         Integer[] colors_temp = {
                 getResources().getColor(R.color.colorGreenP1),
